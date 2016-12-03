@@ -20,6 +20,8 @@ Given the amount of work that Tyler and then I had to put in to get the disserta
 
 I've made this repository public so that changes that future grad students are required to make can be saved in one place and thus made more accessible to everyone. 
 
+**We also welcome contributions to this Readme** -- if there are things that you had to work a lot to understand (for example, how to even run the build script in the first place), write up and contribute an explanation! Pay it forward : )
+
 If you use these files and are asked to make changes by the Grad. School, and are willing to contribute them back, please follow these steps:
 
 1. Only contribute **formatting** or other **large-scale** changes, rather than changes in **content.** "Formatting" changes include things like indentation, bibliography formatting, etc. They do not include things like changing the license text on your Copyright page or replacing the example text in the Markdown files with text from your own dissertation (changes like those are less useful to share, because almost everyone will make small content adjustments for their own dissertations).
