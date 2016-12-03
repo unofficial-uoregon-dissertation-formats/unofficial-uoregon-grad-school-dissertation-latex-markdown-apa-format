@@ -1,0 +1,8 @@
+% The dedication section is optional. It can cover at most one page.
+\dedication{
+	\IfFileExists{Dedication_Section.md.tex}{
+		\input{Dedication_Section.md.tex} % This loads the file. This is relative to the location of this file.
+	}
+	{} % If the file *doesn't exist, do nothing.
+}
+

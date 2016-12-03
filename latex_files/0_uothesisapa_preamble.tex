@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %  
+%       This is the beginning of a uothesisapa Dissertation                    % 
+%                                                                              %    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\errorcontextlines 10000 % Get more logging information on errors. Following http://tex.stackexchange.com/a/83485/56363, if after setting this you see an error, "Note that the order is 'from inner to outer', that is, the first (non-indented) line is the point where the error actually occurred. The line after that (indented) is the part of that line which isn't yet processed, so the point of error is exactly at the line break."
+
+%==============================================================================%
+% Preamble
+%==============================================================================%
+%\documentclass[dissertation, copyright, final]{uothesisapa} % For final copies
+  % Add 'approved' to the list of options to add the Approval page.
+
+\documentclass[dissertation, copyright, approved, final]{uothesisapa} % For final copies
+  % Add 'approved' to the list of options to add the Approval page.
+
+%\documentclass[dissertation, draftcopy]{uothesisapa} % For draft copies (enables line numbering, and puts black bars where there is text that overflows a line where latex can't figure out how to break it onto another line (in "final" mode, this will result in an "overfull hbox" error, so draft mode is a good way of spotting these, following http://tex.stackexchange.com/a/39/56363)
+
+%------------------------------------------------------------------------------%
+% PACKAGES
+%------------------------------------------------------------------------------%
+% Added by Jacob L. to allow "max width" option for images (\includegraphics[max width=\textwidth]{filepath_to_image}), such that if the graphic fits on the page, it'll be normal-size, but if it's too big for the page, it will be scaled down until it fits.
+\usepackage{etex} % Loaded because when loading adjustbox below, I was getting an error, "! No room for a new \dimen ." http://tex.stackexchange.com/a/38609/56363 recommends loading etex to increase the number of packages that latex will allow itself to load.
+\usepackage[export]{adjustbox}
+
+\usepackage[english,UKenglish]{babel}
+\usepackage{mathtools,amsmath,amsfonts,amsthm,amssymb,bm, bbm}
+\usepackage{dcolumn,booktabs,longtable} %,subfig
+\usepackage[singlelinecheck=false]{caption} 
+  \captionsetup[subfigure]{singlelinecheck=on, labelfont=normalfont}
+  \captionsetup[figure]{labelfont=it}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage[space]{grffile} % Added following http://tex.stackexchange.com/a/8426/56363 to allow spaces in graphics filenames.
+\usepackage{rotating}
+\usepackage{enumitem}
+\usepackage{epstopdf}
+\usepackage{ctable}
+\usepackage{appendix}
+\usepackage{setspace}
+\usepackage{tikz}
+  \usetikzlibrary{arrows,positioning} 
+  \tikzset{>=latex}
+\usepackage[natbibapa]{apacite}
+  \bibliographystyle{apacite}
+\usepackage[normalem]{ulem} 
+\usepackage{tabularx,xspace,multirow}
+\usepackage{array}
+
+% Added by Jacob L. following https://tex.stackexchange.com/questions/148314/undefined-control-sequence-in-printbibliography-biblatex to allow UTF-8 (non-ASCII) characters in the bibliography .bib file.
+%\usepackage[utf8]{inputenc}
+
+% Added by Jacob L. to allow compatibility with pandoc's usage of \href
+\usepackage{hyperref}
+
+% Added by Jacob L. to allow compatibility with R's stargazer package (which produced latex tables from regression model output)
+\usepackage{dcolumn}
+
+%--- Change \align{} and \equation{} spaceing
+\usepackage{etoolbox}
+\newcommand{\zerodisplayskips}{%
+  \setlength{\abovedisplayskip}{3pt}
+  \setlength{\belowdisplayskip}{3pt}
+  \setlength{\abovedisplayshortskip}{3pt}
+  \setlength{\belowdisplayshortskip}{3pt}}
+\appto{\normalsize}{\zerodisplayskips}
+\appto{\small}{\zerodisplayskips}
+\appto{\footnotesize}{\zerodisplayskips}
+
+% Create an empty definition for \tightlist, which Pandoc defines when *it* converts from markdown to PDF, following http://tex.stackexchange.com/a/257464/56363 (without this, you'll get an error from pdflatex, "Undefined control sequence.... \tightlist" 
+\def\tightlist{}
+
+% Number only chapter headings (level 0)
+\setcounter{secnumdepth}{0}
+

@@ -41,8 +41,42 @@ If you use these files and are asked to make changes by the Grad. School, and ar
 
 You can ignore the Markdown files and build script, and just use the .tex and .cls files directly.
 
-
 ### If you want to write in (R)markdown:
 
 I've included example Markdown sections from my own dissertation (which is free to adapt under a [CC-BY license](https://creativecommons.org/licenses/by/4.0/ "CC-BY License")), as well as a build script that takes the Markdown, turns it into TeX using [Pandoc](http://pandoc.org/ "Pandoc"), and then compiles a PDF using LaTeX.
+
+### Installing the necessary LaTex Packages on your System
+
+In general, I recommend searching the .tex and .cls files for lines that begin with `\usepackage`, and then making sure that those packages are installed.
+
+### Rendering "Draft" vs. "Final" Versions of your Dissertation
+
+In the file "0_uothesisapa_preamble.tex", you will find a line toward the top like this:
+
+`\documentclass[dissertation, copyright, approved, final]{uothesisapa}`
+
+This line controls how the dissertation is rendered. It has several options:
+
+* You can remove `approved` to remove the page in the rendered PDF that states that the Committee and Grad School have approved the dissertation.
+* You can change `final` to `draftcopy` to get a copy that has line numbers and that does not contain the prefatory pages (this is useful to give to Committee members, especially in early drafts, for getting comments, since they can refer to the page and line numbers).
+	* `draftcopy` mode not only enables line numbering, but also puts black bars where there is text that overflows a line where latex can't figure out how to break it onto another line (in `final` mode, this can result in an error (the error would say "overfull hbox"), so `draft` mode is a good way of spotting these).
+
+### Explanation of Some Files
+
+The file "3_uothesisapa_chapter_template.tex" is an example bare-bones TeX template to help you test your system. It's not necessary for rendering an actual dissertation, except that it shows how chapters are started (with a `\chapter{Chapter Name}` line).
+
+The same is true of the file "4_uothesisapa_appendix_examples.tex".
+
+The file "5_uothesisapa_bibliography.tex" lists all BibTeX (.bib) files that contain the citation information for your References Cited page. `\bibliography{Bibliography_File}`, for example, means "Look in the same folder as this file for 'Bibliography_File.bib'."
+
+The file "appendices.tex" currently looks for an external file (for my dissertation, it was called "R_Package_Version_Numbers_AUTOMATICALLY_GENERATED_DO_NOT_EDIT_MANUALLY.md.tex" and adds it as an appendix if it is found. 
+
+The files "abstract.tex" and "acknowledgements.tex" do something similar.
+
+The files "cover.tex" and "cv.tex" need to be edited by you for your dissertation.
+
+
+
+
+
 

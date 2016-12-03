@@ -1,0 +1,21 @@
+%------------------------------------------------------------------------------%
+% APPENDICES
+%------------------------------------------------------------------------------%
+\appendix
+% Changes the table and figure counting to A.1 style 
+\renewcommand\thefigure{\thechapter.\arabic{figure}}  
+\renewcommand\thetable{\thechapter.\arabic{table}}     
+
+%--- Appendix A ---------------------------------------------------------------%
+\chapter{The First Appendix}
+\section{Appendix One Section One}
+\subsection{Chapter four seciton one sub-section one}
+
+%--- Appendix B ---------------------------------------------------------------%
+% Restart counting to B.1, B.2... 
+\setcounter{figure}{0}  
+\setcounter{table}{0}
+\chapter{The Second Appendix}
+\section{Appendix Two Section One}
+\subsection{Chapter two seciton one sub-section one}
+
