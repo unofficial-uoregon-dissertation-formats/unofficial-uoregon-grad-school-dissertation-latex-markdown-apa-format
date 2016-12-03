@@ -28,7 +28,7 @@ If you use these files and are asked to make changes by the Grad. School, and ar
     1. Make a fork of this repository (from this repository's page on GitHub, click "Fork").
     1. Create a single commit that contains all of the changes that you would like to share (either by "squashing" your commits (see [http://stackoverflow.com/a/5189600](here 'StackOverflow: Squash my last X commits together using Git'), or by just copying your altered files into a fresh copy of this repository).
     1. Make a pull request through GitHub (from your copy of the repository in GitHub, click "New Pull Request").
-  1. If you do not feel comfortable using Git: Send an email to the person who's currently running this repository (see above); we'll work together to get your changes incorporated, with gratitude for you being willing to share them.
+  1. If you do not feel comfortable using Git: Send an email to the person who's currently running this repository (see [#current-administrator](above 'Current Administrator')); we'll work together to get your changes incorporated, with gratitude for you being willing to share them.
 
 
 ## What this Repository Contains
