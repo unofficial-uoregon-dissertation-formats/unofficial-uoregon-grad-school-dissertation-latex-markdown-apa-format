@@ -1,4 +1,4 @@
-# University of Oregon unofficial Dissertation Stylesheet for Markdown + LaTeX using APA Format
+# Unofficial Dissertation Stylesheet for Markdown + LaTeX using APA Format for the University of Oregon
 
 This repository contains template files and sample text for rendering a dissertation using APA format and conforming to the University of Oregon's Graduate School's [https://gradschool.uoregon.edu/sites/gradschool2.uoregon.edu/files/ETD_Style_Manual_2015-2016final032016.pdf](fomatting requirements "University of Oregon ETD Style Manual").
 
