@@ -412,9 +412,7 @@ of this document.}
 \ifbound\else\centerline{\copyright ~\thedegreeyear ~\@author}\fi
 % Added by JL to specify a license that the work is released under:
 \ifbound\else\begin{center}
-This dissertation, including the text and images of this report but not including supplemental files (for example, not including software code and data), is released under a Creative Commons \href{http://creativecommons.org/licenses/by/4.0/}{Attribution 4.0 International License}.\\
-% Added by JL to specify a location at which the dissertation's code can be found:
-The code and other supplemental files written for this dissertation can be found at \href{http://doi.org/10.7264/D3WC7S}{http://doi.org/10.7264/D3WC7S}.
+All rights reserved.
 \end{center}\fi
 
 \ifbound{\centering\@bounddisclaimer}\else\vfill\fi\vfil

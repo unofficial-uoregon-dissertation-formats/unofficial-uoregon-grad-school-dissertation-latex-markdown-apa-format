@@ -28,13 +28,13 @@ include_git_commit_number_true_or_false=true # This should be either 'true' or '
 
 # The steps below will work even if any of these files doesn't yet exist (it will ignore it if it doesn't yet exist):
 # These are all expected to be within $markdown_drafts_directory/
-abstract_section_markdown_file="$markdown_drafts_directory/Abstract_Section.md" # Note that this filename is also defined in abstract.tex. So if you change it here, you also need to change it there.
-acknowledgements_section_markdown_file="$markdown_drafts_directory/Acknowledgements_Section.md" # Note that this filename is also defined in acknowledgements.tex. So if you change it here, you also need to change it there.
-dedication_section_markdown_file="$markdown_drafts_directory/Dedication_Section.md" # Note that this filename is also defined in dedication.tex. So if you change it here, you also need to change it there.
-introduction_section_markdown_file="$markdown_drafts_directory/Literature_Review_Section.md"
-methods_section_markdown_file="$markdown_drafts_directory/Methods_Section.md"
-results_section_markdown_file="$markdown_drafts_directory/Results_Section.md"
-discussion_section_markdown_file="$markdown_drafts_directory/Discussion_Section.md"
+abstract_section_markdown_file="Abstract_Section.md" # Note that this filename is also defined in abstract.tex. So if you change it here, you also need to change it there.
+acknowledgements_section_markdown_file="Acknowledgements_Section.md" # Note that this filename is also defined in acknowledgements.tex. So if you change it here, you also need to change it there.
+dedication_section_markdown_file="Dedication_Section.md" # Note that this filename is also defined in dedication.tex. So if you change it here, you also need to change it there.
+introduction_section_markdown_file="Literature_Review_Section.md"
+methods_section_markdown_file="Methods_Section.md"
+results_section_markdown_file="Results_Section.md"
+discussion_section_markdown_file="Discussion_Section.md"
 
 # This should NOT include a file extension (no ".tex" at the end)
 combined_tex_file_lacking_file_extension="combined_sections_ready_for_rendering"
@@ -46,7 +46,7 @@ location_of_pandoc="/usr/bin/pandoc"
 ####################
 # Optional:
 ####################
-automatically_find_and_cite_all_R_packages_in_your_code=true # This should be "true" or "false"
+automatically_find_and_cite_all_R_packages_in_your_code=false # This should be "true" or "false"
 
 # Uncomment this if you set the above variable to 'true':
 	location_of_script_for_creating_r_package_appendix="./optional_additional_files/Get_All_R_Library_Version_Numbers_and_Create_Draft_From_Them.sh"
@@ -145,7 +145,7 @@ fi
 # This function expects one argument ('$1') in the lines below, the input filename
 
 function pandoc_render_tex_from_markdown(){
-	cat "$1" |\
+	cat "$markdown_drafts_directory/$1" |\
 	perl -0777 -pe 's/<!--.*?-->//igs' |\
 	"$location_of_pandoc" \
 	-f markdown+table_captions+yaml_metadata_block+startnum \
@@ -182,7 +182,11 @@ function pandoc_render_tex_from_markdown(){
 # ONE BY ONE, USE PANDOC TO RENDER THE BODY TEXT SECTIONS, SO THAT WE CAN CONCATENATE THEM TOGETHER WITH EXTRA HEADINGS
 #########################################
 
-# "R_Package_Version_Numbers_AUTOMATICALLY_GENERATED_DO_NOT_EDIT_MANUALLY.md" below is for an appendix
+if [ "$automatically_find_and_cite_all_R_packages_in_your_code" == "true" ]
+then
+	additional_files_to_list_for_converting="$file_saved_by_file_at_location_of_script_for_creating_r_package_appendix"
+fi
+
 for file_name in \
 	"$abstract_section_markdown_file" \
 	"$acknowledgements_section_markdown_file" \
@@ -191,14 +195,11 @@ for file_name in \
 	"$methods_section_markdown_file" \
 	"$results_section_markdown_file" \
 	"$discussion_section_markdown_file" \
-	if [ "$automatically_find_and_cite_all_R_packages_in_your_code" == "true" ]
-	then
-		"$file_saved_by_file_at_location_of_script_for_creating_r_package_appendix"
-	fi
+	$additional_files_to_list_for_converting
 do
-	echo "Processing '$file_name' to convert it into a TeX file..."
+	echo "Processing '$markdown_drafts_directory/$file_name' to convert it into a TeX file..."
 	
-	if [ -s "$file_name" ] # If the file exists and is not blank (i.e., has a size greater than 0)
+	if [ -s "$markdown_drafts_directory/$file_name" ] # If the file exists and is not blank (i.e., has a size greater than 0)
 	then
 		# Run the pandoc function defined above to create a TeX file for this section
 		pandoc_render_tex_from_markdown "$file_name"
@@ -215,6 +216,16 @@ done
 # COPY ADDITIONAL TEX FILES INTO THE BUILD DIRECTORY
 #########################################
 
+if [ "$include_git_commit_number_true_or_false" == "true" ]
+then
+	additional_file_to_list_for_copying="$file_for_latex_to_read_version_control_commit_number"
+fi
+
+if [ "$automatically_find_and_cite_all_R_packages_in_your_code" == "true" ]
+then
+	additional_file_to_list_for_copying="$additional_file_to_list_for_copying $r_packages_bib_file"
+fi
+
 for file_name in \
 	"$input_tex_files_directory/cv.tex" \
 	"$input_tex_files_directory/acknowledgements.tex" \
@@ -222,15 +233,8 @@ for file_name in \
 	"$input_tex_files_directory/cover.tex" \
 	"$input_tex_files_directory/abstract.tex" \
 	"$input_tex_files_directory/uothesisapa.cls" \
-	if [ "$include_git_commit_number_true_or_false" == "true" ]
-	then
-		"$file_for_latex_to_read_version_control_commit_number"
-	fi \
 	"$bibliography_bib_file" \
-	if [ "$automatically_find_and_cite_all_R_packages_in_your_code" == "true" ]
-	then
-		"$r_packages_bib_file"
-	fi
+	$additional_file_to_list_for_copying
 do
 	echo "Copying '$file_name' to build directory..."
 	
@@ -332,7 +336,7 @@ cd "$location_for_temporary_build_files"
 
 echo "Running first round of pdflatex..."
 sleep 2
-pdflatex --output-directory "$location_for_temporary_build_files" "$combined_tex_file_lacking_file_extension"
+pdflatex "$combined_tex_file_lacking_file_extension" # --output-directory "$location_for_temporary_build_files"
 
 echo "Running bibtex..."
 sleep 2
@@ -340,15 +344,15 @@ bibtex "$combined_tex_file_lacking_file_extension.aux"
 
 echo "Running second round of pdflatex..."
 sleep 2
-pdflatex -output-directory "$location_for_temporary_build_files" "$combined_tex_file_lacking_file_extension"
+pdflatex "$combined_tex_file_lacking_file_extension" # --output-directory "$location_for_temporary_build_files"
 
 echo "Running third round of pdflatex..."
 sleep 2
-pdflatex -output-directory "$location_for_temporary_build_files" "$combined_tex_file_lacking_file_extension"
+pdflatex "$combined_tex_file_lacking_file_extension" # --output-directory "$location_for_temporary_build_files"
 
 echo "Running fourth round of pdflatex (this round was added because without it, Table of Contents page numbers were often off by 1)..."
 sleep 2
-pdflatex -output-directory "$location_for_temporary_build_files" "$combined_tex_file_lacking_file_extension"
+pdflatex "$combined_tex_file_lacking_file_extension" # --output-directory "$location_for_temporary_build_files"
 
 #########################################
 # RUN PDFLATEX AND BIBTEX ON THE COMBINED FILE TO RENDER A PDF
@@ -358,7 +362,7 @@ pdflatex -output-directory "$location_for_temporary_build_files" "$combined_tex_
 # FINAL STEPS
 #########################################
 
-echo -e "Script finished. The rendered PDF can be found at \n\n$location_for_temporary_build_files/$combined_tex_file_lacking_file_extension.pdf"
+echo -e "Script finished. The rendered PDF can be found at \n\n$location_for_temporary_build_files/$combined_tex_file_lacking_file_extension.pdf\n\n"
 
 #########################################
 # END FINAL STEPS

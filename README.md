@@ -82,6 +82,8 @@ The files "cover.tex" and "cv.tex" need to be edited by you for your dissertatio
 
 The file "Markdown_to_LaTeX_PDF_Build_Script.sh" has a "Settings" section at the top, where you can change its settings. This is also the case for the scripts in the "optional_additional_files" directory, "Get_All_R_Library_Version_Numbers_and_Create_Draft_From_Them.sh" and "Get_All_R_Library_Version_Numbers_and_Create_Draft_From_Them_R_Script_Portion.R".
 
+The file "uothesisapa.cls" is the main LaTeX style sheet for the dissertation. It has one section that you might wish to edit: the Copyright page. Search the file for "All rights reserved." and replace that text if you'd like to use a different license (for example, a [Creative Commons](https://creativecommons.org/choose/ "Creative Commons License Chooser") license).
+
 # Contributors
 
 The following people have contributed to this repository. Please pay their work forward by contributing any changes you're asked to make to your own dissertation by the Grad School!

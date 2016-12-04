@@ -9,7 +9,7 @@
 # Settings
 ############################
 
-file_to_save="./markdown_draft_examples/R_Package_Version_Numbers_AUTOMATICALLY_GENERATED_DO_NOT_EDIT_MANUALLY.md"
+file_to_save="./markdown_draft_examples/R_Package_Version_Numbers_AUTOMATICALLY_GENERATED_DO_NOT_EDIT_MANUALLY.md" # This file should be located in the markdown drafts folder (the script "Markdown_to_LaTeX_PDF_Build_Script.sh" expects that).
 
 code_directory_to_search="/path/to/your/code"
 

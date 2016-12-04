@@ -7,7 +7,7 @@
 # Settings
 ############################
 
-location_of_list_of_packages <- "./markdown_draft_examples/R_Package_Version_Numbers_AUTOMATICALLY_GENERATED_DO_NOT_EDIT_MANUALLY.md"
+location_of_list_of_packages <- "./markdown_draft_examples/R_Package_Version_Numbers_AUTOMATICALLY_GENERATED_DO_NOT_EDIT_MANUALLY.md" # This file should be located in the markdown drafts folder (the script "Markdown_to_LaTeX_PDF_Build_Script.sh" expects that).
 
 bib_file_to_write <- "./R_Packages_Bibliography_Automatically_Generated.bib"
 
