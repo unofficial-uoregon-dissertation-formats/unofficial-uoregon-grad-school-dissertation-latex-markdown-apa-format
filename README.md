@@ -34,9 +34,17 @@ If you use these files and are asked to make changes by the Grad. School, and ar
 
 ## Using the Files in this Repository
 
+The .sh 
+
 ### If you want to write in raw (La)TeX:
 
-You can ignore the Markdown files and build script, and just use the .tex and .cls files directly.
+You can ignore the Markdown files and build script, and just use the .tex and .cls files directly, using the normal pdflatex build process (if you're doing everything fully manually / not using a tool like RStudio):
+
+1. `pdflatex file.tex`
+2. `bibtex`
+3. `pdflatex file.tex`
+4. `pdflatex file.tex`
+5. `pdflatex file.tex` (This is one run more than normal, but seems to be necessary to get page numbers to render correctly -- without it, page numbers were off by one for me)
 
 ### If you want to write in (R)markdown:
 

@@ -326,7 +326,7 @@ cat "$input_tex_files_directory/6_uothesisapa_end_of_document.tex" >> "$combined
 # 3. pdflatex file.tex
 # 4. pdflatex file.tex
 # 5. pdflatex file.tex (This is one run more than normal, but seems to be necessary to get page numbers to render correctly -- without it, page numbers were off by one for me).
-# The last few runs of pdflatex finish rendering references (including to tables and figures).
+# The last few runs of pdflatex finish rendering references (including to tables and figures)
 
 cd "$location_for_temporary_build_files"
 
