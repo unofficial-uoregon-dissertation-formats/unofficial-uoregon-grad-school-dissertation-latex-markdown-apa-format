@@ -32,11 +32,6 @@ If you use these files and are asked to make changes by the Grad. School, and ar
     1. Make a pull request through GitHub (from your copy of the repository in GitHub, click "New Pull Request").
   1. If you do not feel comfortable using Git: Send an email to the person who's currently running this repository (see [above](#current-administrator 'Current Administrator')); we'll work together to get your changes incorporated, with gratitude for you being willing to share them.
 
-
-## What this Repository Contains
-
-
-
 ## Using the Files in this Repository
 
 ### If you want to write in raw (La)TeX:
@@ -77,8 +72,15 @@ The files "abstract.tex" and "acknowledgements.tex" do something similar.
 
 The files "cover.tex" and "cv.tex" need to be edited by you for your dissertation.
 
+The file "Markdown_to_LaTeX_PDF_Build_Script.sh" has a "Settings" section at the top, where you can change its settings. This is also the case for the scripts in the "optional_additional_files" directory, "Get_All_R_Library_Version_Numbers_and_Create_Draft_From_Them.sh" and "Get_All_R_Library_Version_Numbers_and_Create_Draft_From_Them_R_Script_Portion.R".
 
+# Contributors
 
+The following people have contributed to this repository. Please pay their work forward by contributing any changes you're asked to make to your own dissertation by the Grad School!
+
+* Tyler Matta (2016)
+* Jacob Levernier (2016)
+* Kellie Geldreich (2016, offering formatting advice)
 
 
 
