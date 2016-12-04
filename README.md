@@ -34,6 +34,8 @@ If you use these files and are asked to make changes by the Grad. School, and ar
 
 ## Using the Files in this Repository
 
+All `.sh` files in this repository are expected to be run in a Bash shell (i.e., the "Terminal" in Linux or Mac OSX (or Cygwin or Bash for Windows on Windows).
+
 ### If you want to write in raw (La)TeX:
 
 You can ignore the Markdown files and build script, and just use the .tex and .cls files directly, using the normal pdflatex build process (if you're doing everything fully manually / not using a tool like RStudio):
@@ -74,7 +76,7 @@ The file "3_uothesisapa_chapter_template.tex" is an example bare-bones TeX templ
 
 The same is true of the file "4_uothesisapa_appendix_examples.tex".
 
-The file "5_uothesisapa_bibliography.tex" lists all BibTeX (.bib) files that contain the citation information for your References Cited page. `\bibliography{Bibliography_File}`, for example, means "Look in the same folder as this file for 'Bibliography_File.bib'."
+The file "5_uothesisapa_bibliography.tex" lists all BibTeX (.bib) files that contain the citation information for your References Cited page. `\bibliography{Bibliography_File}`, for example, means "Look in the same folder as this file for 'Bibliography_File.bib'." Programs such as [Zotero](https://www.zotero.org/ "Zotero") and [Mendeley](https://www.mendeley.com/ "Mendeley") can export citations in .bib format for you. The files in this repository are currently set up to look for a file called "Bibliography.bib" (an example file is included).
 
 The file "appendices.tex" currently looks for an external file (for my dissertation, it was called "R_Package_Version_Numbers_AUTOMATICALLY_GENERATED_DO_NOT_EDIT_MANUALLY.md.tex" and adds it as an appendix if it is found. 
 
