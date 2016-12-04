@@ -34,7 +34,7 @@ If you use these files and are asked to make changes by the Grad. School, and ar
 
 ## Using the Files in this Repository
 
-All `.sh` files in this repository are expected to be run in a Bash shell (i.e., the "Terminal" in Linux or Mac OSX (or Cygwin or Bash for Windows on Windows).
+All `.sh` files in this repository are expected to be run in a Bash shell (i.e., the "Terminal" in Linux or Mac OSX (or Cygwin or Bash for Windows on Windows). I have only tested this in Linux; I'm not sure whether the OSX version of Bash has Perl installed by default (it will need to be if you use the Markdown build script).
 
 ### If you want to write in raw (La)TeX:
 
