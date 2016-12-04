@@ -34,8 +34,6 @@ If you use these files and are asked to make changes by the Grad. School, and ar
 
 ## Using the Files in this Repository
 
-The .sh 
-
 ### If you want to write in raw (La)TeX:
 
 You can ignore the Markdown files and build script, and just use the .tex and .cls files directly, using the normal pdflatex build process (if you're doing everything fully manually / not using a tool like RStudio):
@@ -49,6 +47,10 @@ You can ignore the Markdown files and build script, and just use the .tex and .c
 ### If you want to write in (R)markdown:
 
 I've included example Markdown sections from my own dissertation (which is free to adapt under a [CC-BY license](https://creativecommons.org/licenses/by/4.0/ "CC-BY License")), as well as a build script that takes the Markdown, turns it into TeX using [Pandoc](http://pandoc.org/ "Pandoc"), and then compiles a PDF using LaTeX.
+
+You will need to have [pandoc and pandoc-citeproc](http://pandoc.org/installing.html "Pandoc 'Installing' page") installed for converting the Markdown text into TeX.
+
+You can replace the example Markdown text with Pandoc-style Markdown (see, e.g., [here](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html "RMarkdown: Citation Syntax") (search for "Citation Syntax") for how to automatically render citations using Pandoc-style Markdown).
 
 ### Installing the necessary LaTex Packages on your System
 
