@@ -14,7 +14,7 @@ In 2014 or before, the Graduate School, apparently in consultation with [CMET](h
 
 In 2016, Tyler Matta updated the existing Grad School stylesheet to comply with APA format, and generously passed it on to several other graduate students in Psychology. Since then, I've made additional formatting corrections, and have also added support for writing using [Markdown](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html "RStudio: 'Authoring Pandoc Markdown'") (including [RMarkdown](http://rmarkdown.rstudio.com/lesson-1.html "RMarkdown Introduction")).
 
-Given the amount of work that Tyler and then I had to put in to get the dissertation formatted correctly for the Grad School, I've created this repository. I envision it being grad-student run, though CMET or the Grad School may ask to administrate it at some point. **Contributions are welcome (see below).**
+Given the amount of work that Tyler and then I had to put in to get the dissertation formatted correctly for the Grad School, I've created this repository. I envision it being grad-student run, though CMET or the Grad School may ask to administrate it at some point. **Contributions are welcome (see [below](#contributing-to-this-repository)).**
 
 ## Contributing to this Repository
 
