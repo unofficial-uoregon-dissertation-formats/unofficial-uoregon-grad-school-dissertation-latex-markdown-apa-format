@@ -50,7 +50,7 @@ You can ignore the Markdown files and build script, and just use the .tex and .c
 
 I've included example Markdown sections from my own dissertation (which is free to adapt under a [CC-BY license](https://creativecommons.org/licenses/by/4.0/ "CC-BY License")), as well as a build script that takes the Markdown, turns it into TeX using [Pandoc](http://pandoc.org/ "Pandoc"), and then compiles a PDF using LaTeX.
 
-You will need to have [pandoc and pandoc-citeproc](http://pandoc.org/installing.html "Pandoc 'Installing' page") installed for converting the Markdown text into TeX. See also the note [above](#using-the-files-in-this-repository) about the shell/terminal itself in which to run the build script.
+You will need to have [pandoc and pandoc-citeproc](http://pandoc.org/installing.html "Pandoc 'Installing' page") installed for converting the Markdown text into TeX. See also the note [above](#using-the-files-in-this-repository "Using the Files in this Repository") about the shell/terminal itself in which to run the build script.
 
 You can replace the example Markdown text with Pandoc-style Markdown (see, e.g., [here](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html "RMarkdown: Citation Syntax") (search for "Citation Syntax") for how to automatically render citations using Pandoc-style Markdown).
 
