@@ -20,7 +20,7 @@ Given the amount of work that Tyler and then I had to put in to get the disserta
 
 I've made this repository public so that changes that future grad students are required to make can be saved in one place and thus made more accessible to everyone. 
 
-**We also welcome contributions to this Readme** -- if there are things that you had to work a lot to understand (for example, how to even run the build script in the first place), write up and contribute an explanation! Pay it forward : )
+**We also welcome contributions to this Readme** -- if there are things that you had to work a lot to understand (for example, how to even run the build script in the first place), write up and contribute an explanation! **Pay it forward** : )
 
 If you use these files and are asked to make changes by the Grad. School, and are willing to contribute them back, please follow these steps:
 
@@ -50,7 +50,7 @@ You can ignore the Markdown files and build script, and just use the .tex and .c
 
 I've included example Markdown sections from my own dissertation (which is free to adapt under a [CC-BY license](https://creativecommons.org/licenses/by/4.0/ "CC-BY License")), as well as a build script that takes the Markdown, turns it into TeX using [Pandoc](http://pandoc.org/ "Pandoc"), and then compiles a PDF using LaTeX.
 
-You will need to have [pandoc and pandoc-citeproc](http://pandoc.org/installing.html "Pandoc 'Installing' page") installed for converting the Markdown text into TeX.
+You will need to have [pandoc and pandoc-citeproc](http://pandoc.org/installing.html "Pandoc 'Installing' page") installed for converting the Markdown text into TeX. See also the note [above](#using-the-files-in-this-repository) about the shell/terminal itself in which to run the build script.
 
 You can replace the example Markdown text with Pandoc-style Markdown (see, e.g., [here](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html "RMarkdown: Citation Syntax") (search for "Citation Syntax") for how to automatically render citations using Pandoc-style Markdown).
 
@@ -68,7 +68,7 @@ This line controls how the dissertation is rendered. It has several options:
 
 * You can remove `approved` to remove the page in the rendered PDF that states that the Committee and Grad School have approved the dissertation.
 * You can change `final` to `draftcopy` to get a copy that has line numbers and that does not contain the prefatory pages (this is useful to give to Committee members, especially in early drafts, for getting comments, since they can refer to the page and line numbers).
-	* `draftcopy` mode not only enables line numbering, but also puts black bars where there is text that overflows a line where latex can't figure out how to break it onto another line (in `final` mode, this can result in an error (the error would say "overfull hbox"), so `draft` mode is a good way of spotting these).
+	* `draftcopy` mode not only enables line numbering, but also puts black bars where there is text that overflows a line where latex can't figure out how to break it onto another line (in `final` mode, this can result in an error (the error would say "overfull hbox"), so `draftcopy` mode is a good way of spotting these).
 
 ### Explanation of Some Files
 
