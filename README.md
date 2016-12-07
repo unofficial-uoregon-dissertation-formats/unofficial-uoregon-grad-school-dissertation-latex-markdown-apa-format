@@ -76,7 +76,7 @@ The file "3_uothesisapa_chapter_template.tex" is an example bare-bones TeX templ
 
 The same is true of the file "4_uothesisapa_appendix_examples.tex".
 
-The file "5_uothesisapa_bibliography.tex" lists all BibTeX (.bib) files that contain the citation information for your References Cited page. `\bibliography{Bibliography_File}`, for example, means "Look in the same folder as this file for 'Bibliography_File.bib'." Programs such as [Zotero](https://www.zotero.org/ "Zotero") and [Mendeley](https://www.mendeley.com/ "Mendeley") can export citations in .bib format for you. The files in this repository are currently set up to look for a file called "Bibliography.bib" (an example file is included).
+The file "5_uothesisapa_bibliography.tex" lists all BibTeX (.bib) files that contain the citation information for your References Cited page. `\bibliography{Bibliography_File}`, for example, means "Look in the same folder as this file for 'Bibliography_File.bib'." Programs such as [Zotero](https://www.zotero.org/ "Zotero") and [Mendeley](https://www.mendeley.com/ "Mendeley") can export citations in .bib format for you (I especially recommend using Zotero with the free [Better Bib(La)TeX plugin](https://github.com/ZotPlus/zotero-better-bibtex "Zotero Better Bib(La)TeX plugin") (linked from [here](https://www.zotero.org/support/plugins "Zotero Plugins")). The files in this repository are currently set up to look for a file called "Bibliography.bib" (an example file is included).
 
 The file "appendices.tex" currently looks for an external file (for my dissertation, it was called "R_Package_Version_Numbers_AUTOMATICALLY_GENERATED_DO_NOT_EDIT_MANUALLY.md.tex" and adds it as an appendix if it is found. 
 
