@@ -92,8 +92,8 @@ The file "uothesisapa.cls" is the main LaTeX style sheet for the dissertation. I
 
 The following people have contributed to this repository. Please pay their work forward by contributing any changes you're asked to make to your own dissertation by the Grad School!
 
-* Tyler Matta (2016)
 * Jacob Levernier (2016)
+* Tyler Matta (2016)
 * Kellie Geldreich (2016, offering formatting advice)
 
 
