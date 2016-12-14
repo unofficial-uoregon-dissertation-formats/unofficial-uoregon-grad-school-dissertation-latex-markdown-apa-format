@@ -409,13 +409,27 @@ of this document.}
 \clearpage
 \thispagestyle{plain}
 \@fromtopskip{5in}
-\ifbound\else\centerline{\copyright ~\thedegreeyear ~\@author}\fi
 % Added by JL to specify a license that the work is released under:
+\begin{singlespacing} % Changed by JL following a request from the Grad. School.
 \ifbound\else\begin{center}
+% Automatically give the author and year, without an extra linebreak beneath (as you would get from using '\ifbound\else\centerline{\copyright ~\thedegreeyear ~\@author}\fi'):
+\copyright ~\thedegreeyear ~\@author \\
+
 All rights reserved.
+
+%%%%%%%%%%%%%%%%%%%%%%
+% Below is an example for a Creative-Commons style license (if you use this, delete "All rights reserved." above). It assumes that you've downloaded the logo for the license (you'll need to change '/path/to/logo/image.png' to match where the image is on your filesystem):
+%%%%%%%%%%%%%%%%%%%%%%
+
+%This work, including text and images of this document but not including supplemental files (for example, not including software code and data), is licensed under a Creative Commons\\ \textbf{\href{http://creativecommons.org/licenses/by/4.0/}{Attribution 4.0 International License}.}\\
+
+%\raisebox{-.5\height}{\includegraphics[height=2em]{/path/to/logo/image.png}}
+
 \end{center}\fi
 
 \ifbound{\centering\@bounddisclaimer}\else\vfill\fi\vfil
+
+\end{singlespacing}
 \fi
 }
 
@@ -472,6 +486,9 @@ All rights reserved.
 %------------------------------------------------------------------------------%
 % Define Dedication
 %------------------------------------------------------------------------------%
+
+% Changed by Jacob L. throughout this dedication section definition: all instances of '\begin{center}' and '\end{center}' were replaced with '\begin{flushleft}' and '\end{flushleft}', following the Graduate School's request to left-justify the text.
+
 \def\@makededpage{
   \if@dedication
     \clearpage
@@ -490,14 +507,14 @@ All rights reserved.
     \vspace*{\baselineskip}
     \par
     \ifcommitteedraft
-      \begin{center}\@disclaimer \end{center}
+      \begin{flushleft}\@disclaimer \end{flushleft}
     \else
-      \begin{center}\@dedication \end{center}
+      \begin{flushleft}\@dedication \end{flushleft}
       \vfill
         \iflatedraft
-          \begin{center}
+          \begin{flushleft}
             \textcolor{red}{\textbf{\uppercase{review proof}}}\\
-          \end{center}
+          \end{flushleft}
         \fi
     \fi
   \fi
