@@ -38,6 +38,8 @@ All `.sh` files in this repository are expected to be run in a Bash shell (i.e.,
 
 ### If you want to write in raw (La)TeX:
 
+#### General overview
+
 You can ignore the Markdown files and build script, and just use the .tex and .cls files directly, using the normal pdflatex build process (if you're doing everything fully manually / not using a tool like RStudio):
 
 1. `pdflatex file.tex`
@@ -45,8 +47,6 @@ You can ignore the Markdown files and build script, and just use the .tex and .c
 3. `pdflatex file.tex`
 4. `pdflatex file.tex`
 5. `pdflatex file.tex` (This is one run more than normal, but seems to be necessary to get page numbers to render correctly -- without it, page numbers were off by one for me)
-
-
 
 In this case, `pdflatex` should be run on a `.tex` file that is a combined version of all of the `.tex` files in this repo. and your dissertation's `.tex` files, in this order:
 
@@ -57,9 +57,15 @@ In this case, `pdflatex` should be run on a `.tex` file that is a combined versi
 1. `5_uothesisapa_bibliography.tex`
 1. `6_uothesisapa_end_of_document.tex`
 
+##### Example implementation 1: Build script
+
 The `Example_Raw_LaTeX_Build_Script.sh` script in this repository provides an example for automating this process. The steps in it generally follow the `Markdown_to_LaTeX_PDF_Build_Script.sh` script from this repo. starting at line 254; I've pulled out just the TeX-relevant portions of that script.
 
 For further discussion of this example, please see the discussion in [Issue #1](https://github.com/publicus/unofficial-uoregon-grad-school-dissertation-latex-markdown-apa-format/issues/1 "Issue #1") in this repository.
+
+##### Example implementation 2: Makefile
+
+If you have `GNU Make` installed on your computer, you can `cd` (i.e., go into) the `latex_files` directory of this repository, and type "make" to generate a pdf file named "main.pdf." Alternatively, `make short` skips the step of re-generating the bibliography database. `make clean` cleans every intermediate file.
 
 ### If you want to write in (R)markdown:
 
@@ -107,6 +113,7 @@ The file "uothesisapa.cls" is the main LaTeX style sheet for the dissertation. I
 
 The following people have contributed to this repository. Please pay their work forward by contributing any changes you're asked to make to your own dissertation by the Grad School!
 
+* Samuel Li (2017)
 * Jacob Levernier (2016)
 * Tyler Matta (2016)
 * Kellie Geldreich (2016, offering formatting advice)
