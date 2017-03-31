@@ -59,7 +59,7 @@ In this case, `pdflatex` should be run on a `.tex` file that is a combined versi
 
 The `Example_Raw_LaTeX_Build_Script.sh` script in this repository provides an example for automating this process. The steps in it generally follow the `Markdown_to_LaTeX_PDF_Build_Script.sh` script from this repo. starting at line 254; I've pulled out just the TeX-relevant portions of that script.
 
-For further discussion of this example, please see the discussion in Issue #1 in this repository.
+For further discussion of this example, please see the discussion in [Issue #1](https://github.com/publicus/unofficial-uoregon-grad-school-dissertation-latex-markdown-apa-format/issues/1 "Issue #1") in this repository.
 
 ### If you want to write in (R)markdown:
 
