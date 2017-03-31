@@ -46,6 +46,21 @@ You can ignore the Markdown files and build script, and just use the .tex and .c
 4. `pdflatex file.tex`
 5. `pdflatex file.tex` (This is one run more than normal, but seems to be necessary to get page numbers to render correctly -- without it, page numbers were off by one for me)
 
+
+
+In this case, `pdflatex` should be run on a `.tex` file that is a combined version of all of the `.tex` files in this repo. and your dissertation's `.tex` files, in this order:
+
+1. `0_uothesisapa_preamble.tex`
+1. `1_uothesisapa_prefatory_pages.tex`
+1. `2_uothesisapa_begin_main_body_of_document.tex`
+1. Your dissertation `.tex` file, with each chapter having a heading that looks like this: `\chapter{Chapter name goes here}` (e.g., `\chapter{Methods}`)
+1. `5_uothesisapa_bibliography.tex`
+1. `6_uothesisapa_end_of_document.tex`
+
+The `Example_Raw_LaTeX_Build_Script.sh` script in this repository provides an example for automating this process. The steps in it generally follow the `Markdown_to_LaTeX_PDF_Build_Script.sh` script from this repo. starting at line 254; I've pulled out just the TeX-relevant portions of that script.
+
+For further discussion of this example, please see the discussion in Issue #1 in this repository.
+
 ### If you want to write in (R)markdown:
 
 I've included example Markdown sections from my own dissertation (which is free to adapt under a [CC-BY license](https://creativecommons.org/licenses/by/4.0/ "CC-BY License")), as well as a build script that takes the Markdown, turns it into TeX using [Pandoc](http://pandoc.org/ "Pandoc"), and then compiles a PDF using LaTeX.
