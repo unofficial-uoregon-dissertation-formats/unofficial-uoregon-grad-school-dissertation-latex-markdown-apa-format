@@ -65,7 +65,7 @@ For further discussion of this example, please see the discussion in [Issue #1](
 
 ##### Example implementation 2: Makefile
 
-If you have `GNU Make` installed on your computer, you can `cd` (i.e., go into) the `latex_files` directory of this repository, and type "make" to generate a pdf file named "main.pdf." Alternatively, `make short` skips the step of re-generating the bibliography database. `make clean` cleans every intermediate file.
+If you have `GNU Make` and latex tools `pdflatex` and `bibtex`installed on your computer, you can `cd` (i.e., go into) the `latex_files` directory of this repository, and type `make` to generate a pdf file named "main.pdf." Alternatively, `make short` skips the step of re-generating the bibliography database and compiling the PDF file for multiple times. `make clean` cleans every intermediate file.
 
 ### If you want to write in (R)markdown:
 
