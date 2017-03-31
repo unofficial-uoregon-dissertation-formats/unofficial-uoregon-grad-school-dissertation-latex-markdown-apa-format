@@ -8,6 +8,7 @@ main.pdf: *.tex *.bib
 	touch main.tex
 	pdflatex main.tex
 	pdflatex main.tex
+	pdflatex main.tex
 
 short: *.tex 
 	pdflatex main.tex
