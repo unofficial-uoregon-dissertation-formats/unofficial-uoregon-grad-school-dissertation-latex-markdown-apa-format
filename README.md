@@ -79,6 +79,8 @@ You can replace the example Markdown text with Pandoc-style Markdown (see, e.g.,
 
 In general, I recommend searching the .tex and .cls files for lines that begin with `\usepackage`, and then making sure that those packages are installed.
 
+If you are running Ubuntu 16.10, e.g., you will need to install `texlive-bibtex-extra` (for the `apacite` LaTeX package) and `texlive-fonts-extra` (for the `bbm` LaTeX package).
+
 ### Rendering "Draft" vs. "Final" Versions of your Dissertation
 
 In the file "0_uothesisapa_preamble.tex", you will find a line toward the top like this:
