@@ -4,8 +4,10 @@
 # Settings
 ########################################
 
-sha1sum_of_pdf_output_that_has_been_manually_checked="0f7c6efd545aacb6ca9e7bf57e728912a3fdfa3e" 
-	# Get this by running 'sha1sum /path/to/file.pdf' on a rendered PDF from the example files that you've manually inspected.
+# Get these by running 'sha1sum /path/to/file.pdf' on a rendered PDF from the example files that you've manually inspected.
+sha1sum_of_markdown_based_pdf_output_that_has_been_manually_checked="2cc7cd0ce2901b07ab131064411d5fcb08d49bea"
+
+sha1sum_of_makefile_based_pdf_output_that_has_been_manually_checked="cd5afbaff0d71a345a9dfe9c7863a8e6de46b7a8"
 
 ########################################
 # End Settings
@@ -54,21 +56,10 @@ echo "Checksumming the output PDF..."
 makefile_pdf_checksum=$(sha1sum "./main.pdf" | awk '{ print $1 }')
 
 echo -e "The markdown-based PDF checksum is \n     $markdown_to_latex_pdf_checksum"
+echo -e "The expected value (set at the top of this script) is \n     $sha1sum_of_markdown_based_pdf_output_that_has_been_manually_checked"
+
 echo -e "The Makefile-based PDF checksum is \n     $makefile_pdf_checksum"
-echo -e "The expected checksum from a manually-inspected file (as defined at the top of this script) is \n     $sha1sum_of_pdf_output_that_has_been_manually_checked"
+echo -e "The expected value (set at the top of this script) is \n     $sha1sum_of_makefile_based_pdf_output_that_has_been_manually_checked"
+
 echo "If these are the same, the test has passed."
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
