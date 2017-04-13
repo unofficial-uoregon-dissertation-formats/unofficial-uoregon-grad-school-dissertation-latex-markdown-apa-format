@@ -58,12 +58,14 @@
 \newif\if@numsections
 \newif\if@contnumb
 \newif\if@draftimage
+\newif\if@lackscommittee
 
 \DeclareOption{dissertation}{\@dissertationtrue\thesistrue\apacitetrue}
 \DeclareOption{msthesis}{\@dissertationfalse\thesistrue}
 \DeclareOption{approved}{\@approvedtrue}
 \DeclareOption{draftimages}{\draftimagetrue\PassOptionsToPackage{draft}{graphicx}}
 \DeclareOption{draftcopy}{\drafttrue\draftcopytrue\boundtrue}
+\DeclareOption{lackscommittee}{\@lackscommitteetrue}
 \DeclareOption{committeedraft}{\drafttrue\committeedrafttrue}
 \DeclareOption{latedraft}{\drafttrue\latedrafttrue}
 \DeclareOption{copyright}{\@copyrighttrue}
@@ -238,10 +240,10 @@ of this document.}
 
 \def\chair#1{\gdef\@chair{#1}}
 \newif\if@cochair
-\if@dissertation
+%\if@dissertation % Commented out by JL since mstheses *can* have committees, too, according to the current UOregon Style Guide.
   \def\cochair#1{\gdef\@cochair{#1}\@cochairtrue}
   \def\committee#1{\gdef\@committee{#1}}
-\fi
+%\fi
 \def\graddean#1{\gdef\@graddean{#1}}
 
 \def\degreetype#1{\gdef\@degree{#1}}
@@ -394,7 +396,12 @@ of this document.}
       \if@cochair
         \@cochair& Co-chair\\
       \fi
-      \@committee\\ \\ 
+      \if@lackscommittee
+        % If we don't have a committee, do nothing. Otherwise, render the committee. Rather, just enter a few blank lines.
+        \\ \\ 
+      \else
+        \@committee\\ \\ 
+      \fi
       and & \\ \\
       \@graddean &  Dean of the Graduate School
     \end{tabular}\\*[\baselineskip]

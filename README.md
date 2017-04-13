@@ -92,6 +92,8 @@ This line controls how the dissertation is rendered. It has several options:
 * You can remove `approved` to remove the page in the rendered PDF that states that the Committee and Grad School have approved the dissertation.
 * You can change `final` to `draftcopy` to get a copy that has line numbers and that does not contain the prefatory pages (this is useful to give to Committee members, especially in early drafts, for getting comments, since they can refer to the page and line numbers).
 	* `draftcopy` mode not only enables line numbering, but also puts black bars where there is text that overflows a line where latex can't figure out how to break it onto another line (in `final` mode, this can result in an error (the error would say "overfull hbox"), so `draftcopy` mode is a good way of spotting these).
+* If you are rendering a Masters thesis, you can use `\documentclass[msthesis]`, along with the other options listed above (e.g., `\documentclass[msthesis, approved, final]{uothesisapa}`).
+	* If your Masters thesis does not include a Committee, you can add `lackscommittee` to the list of options (e.g., `\documentclass[msthesis, lackscommittee, approved, final]{uothesisapa}`).
 
 ### Explanation of Some Files
 
