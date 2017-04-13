@@ -14,7 +14,7 @@ sha1sum_of_makefile_based_pdf_output_that_has_been_manually_checked="cd5afbaff0d
 ########################################
 
 
-# This script will perform a series of checks:
+# This script will build a pdf using both markdown- and makefile-based methodologies, and give you the checksum of each.
 
 
 name_of_directory_of_this_script=$(dirname "$0")
