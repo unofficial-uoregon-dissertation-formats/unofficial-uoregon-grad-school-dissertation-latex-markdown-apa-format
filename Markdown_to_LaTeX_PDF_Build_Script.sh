@@ -84,10 +84,10 @@ then
 	if [ $number_of_files_in_temporary_build_directory -gt 0 ] # If the directory is *not empty* (its number of files is greater than 0)
 	then
 		echo -e "\n\n"
-		echo -e "Deleting the below files (press Ctrl+C in the next 30 seconds if this does NOT look ok to you)...\n\n"
+		echo -e "Deleting the below files (press Ctrl+C in the next 10 seconds if this does NOT look ok to you)...\n\n"
 		ls "$location_for_temporary_build_files/"*
-		echo -e "\nDeleting the above files (press Ctrl+C in the next 30 seconds if this does NOT look ok to you)..."
-		sleep 30 # Wait for this many seconds before proceeding...
+		echo -e "\nDeleting the above files (press Ctrl+C in the next 10 seconds if this does NOT look ok to you)..."
+		sleep 10 # Wait for this many seconds before proceeding...
 		rm -f "$location_for_temporary_build_files/"* # The -f flag here will suppress any warnings if no such files exist.
 	else # If the directory *is* empty
 		echo "There are no files in the temporary build directory to delete. Moving on..."

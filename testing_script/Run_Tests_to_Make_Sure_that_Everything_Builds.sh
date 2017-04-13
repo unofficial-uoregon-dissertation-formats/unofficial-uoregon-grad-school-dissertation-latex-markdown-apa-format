@@ -24,7 +24,7 @@ echo "Running example markdown tests..."
 sleep 2
 
 # Run the markdown-to-latex example build script
-#./Markdown_to_LaTeX_PDF_Build_Script.sh
+./Markdown_to_LaTeX_PDF_Build_Script.sh
 
 echo "Computing the checksum of the output PDF..."
 

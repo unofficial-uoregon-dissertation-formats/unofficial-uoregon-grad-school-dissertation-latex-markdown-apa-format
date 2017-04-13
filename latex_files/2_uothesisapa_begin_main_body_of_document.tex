@@ -2,5 +2,10 @@
 % BEGIN DOCUMENT
 %==============================================================================%
 \begin{document}
+
+% Following https://tex.stackexchange.com/a/313605, these two options will allow a rendered PDF to have the same checksum every time, because they suppress creation date and modification date info. from being written to the document.
+\pdfinfoomitdate=1
+\pdftrailerid{}
+
 \maketitle
 
