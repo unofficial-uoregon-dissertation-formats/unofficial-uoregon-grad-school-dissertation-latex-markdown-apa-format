@@ -1,21 +1,19 @@
-# For the Mac only, comment out for other architectures
-#LATEXFLAGS = "-output-format=0"
-
 SHELL = /bin/sh
 MAIN = main
+LATEX = pdflatex
 
 all: $(MAIN).pdf findref
 
-$(MAIN).pdf: *.tex *.bib
-	pdflatex $(LATEXFLAGS) $(MAIN).tex
+$(MAIN).pdf: *.tex $(MAIN).bib
+	$(LATEX) $(LATEXFLAGS) $(MAIN).tex
 	bibtex $(LATEXFLAGS) $(MAIN)
 	touch $(MAIN).tex
-	pdflatex $(LATEXFLAGS) $(MAIN).tex
-	pdflatex $(LATEXFLAGS) $(MAIN).tex
-	pdflatex $(LATEXFLAGS) $(MAIN).tex
+	$(LATEX) $(LATEXFLAGS) $(MAIN).tex
+	$(LATEX) $(LATEXFLAGS) $(MAIN).tex
+	$(LATEX) $(LATEXFLAGS) $(MAIN).tex
 
 short: *.tex 
-	pdflatex $(LATEXFLAGS) $(MAIN).tex
+	$(LATEX) $(LATEXFLAGS) $(MAIN).tex
 
 findref:
 	@echo
@@ -31,5 +29,6 @@ findref:
                done
 
 clean:
-	$(RM) *.aux *.log *.out *.lof *.lot *.toc *.lbl *.brf $(MAIN).dvi $(MAIN).ps $(MAIN).pdf $(MAIN).bbl $(MAIN).blg $(MAIN).synctex.gz
+	$(RM) *.aux *.log *.out *.lof *.lot *.toc *.lbl *.brf *.fls *.fdb_latexmk $(MAIN).dvi $(MAIN).ps $(MAIN).pdf $(MAIN).bbl $(MAIN).blg $(MAIN).synctex.gz $(MAIN).tdo
+
 

@@ -41,11 +41,11 @@ All `.sh` files in this repository are expected to be run in a Bash shell (i.e.,
 
 You can ignore the Markdown files and build script, and just use the .tex and .cls files directly, using the normal pdflatex build process (if you're doing everything fully manually / not using a tool like RStudio):
 
-1. `pdflatex file.tex`
+1. `pdflatex main.tex`
 2. `bibtex`
-3. `pdflatex file.tex`
-4. `pdflatex file.tex`
-5. `pdflatex file.tex` (This is one run more than normal, but seems to be necessary to get page numbers to render correctly -- without it, page numbers were off by one for me)
+3. `pdflatex main.tex`
+4. `pdflatex main.tex`
+5. `pdflatex main.tex` (This is one run more than normal, but seems to be necessary to get page numbers to render correctly -- without it, page numbers were off by one for me)
 
 In this case, `pdflatex` should be run on a `.tex` file that is a combined version of all of the `.tex` files in this repo. and your dissertation's `.tex` files, in this order:
 
@@ -56,15 +56,11 @@ In this case, `pdflatex` should be run on a `.tex` file that is a combined versi
 1. `5_uothesisapa_bibliography.tex`
 1. `6_uothesisapa_end_of_document.tex`
 
-##### Example implementation 1: Build script
+Using the provided Makefile, or simply compiling with `main.tex` is sufficient for LaTeX, since each of the requisite files are input into the main one.
 
-The `Example_Raw_LaTeX_Build_Script.sh` script in this repository provides an example for automating this process. The steps in it generally follow the `Markdown_to_LaTeX_PDF_Build_Script.sh` script from this repo. starting at line 254; I've pulled out just the TeX-relevant portions of that script.
+##### Example implementation: Makefile
 
-For further discussion of this example, please see the discussion in [Issue #1](https://github.com/publicus/unofficial-uoregon-grad-school-dissertation-latex-markdown-apa-format/issues/1 "Issue #1") in this repository.
-
-##### Example implementation 2: Makefile
-
-If you have `GNU Make` and latex tools `pdflatex` and `bibtex`installed on your computer, you can `cd` (i.e., go into) the `latex_files` directory of this repository, and type `make` to generate a pdf file named "main.pdf." Alternatively, `make short` skips the step of re-generating the bibliography database and compiling the PDF file for multiple times. `make clean` cleans every intermediate file.
+If you have `GNU Make` and latex tools `pdflatex` and `bibtex` installed on your computer, you can `cd` (i.e., go into) the `latex_files` directory of this repository, and type `make` to generate a pdf file named "main.pdf." Alternatively, `make short` skips the step of re-generating the bibliography database and compiling the PDF file for multiple times. `make clean` cleans every intermediate file.
 
 ### If you want to write in (R)markdown:
 
@@ -78,7 +74,14 @@ You can replace the example Markdown text with Pandoc-style Markdown (see, e.g.,
 
 In general, I recommend searching the .tex and .cls files for lines that begin with `\usepackage`, and then making sure that those packages are installed.
 
-If you are running Ubuntu 16.10, e.g., you will need to install `texlive-bibtex-extra` (for the `apacite` LaTeX package) and `texlive-fonts-extra` (for the `bbm` LaTeX package).
+#### Linux
+If you are running Ubuntu e.g., you will need to install `texlive-bibtex-extra` (for the `apacite` LaTeX package) and `texlive-fonts-extra` (for the `bbm` LaTeX package).
+
+#### MacOS
+If you use Macports, we recommend `port install texlive-latex-full`, which is every package. It may work if you just do `port install texlive-latex-recommended texlive-bibtex-extra texlive-fonts-extra`. If you use Homebrew or no command line package manager, try [MacTex](https://www.tug.org/mactex/mactex-download.html).
+
+#### Windows
+On windows: [MikTex](https://miktex.org) is the most stable LaTeX build system we've found.
 
 ### Rendering "Draft" vs. "Final" Versions of your Dissertation
 
@@ -104,8 +107,6 @@ The file "5_uothesisapa_bibliography.tex" lists all BibTeX (.bib) files that con
 
 The file "appendices.tex" currently looks for an external file (for my dissertation, it was called "R_Package_Version_Numbers_AUTOMATICALLY_GENERATED_DO_NOT_EDIT_MANUALLY.md.tex" and adds it as an appendix if it is found. 
 
-The files "abstract.tex" and "acknowledgements.tex" do something similar.
-
 The files "cover.tex" and "cv.tex" need to be edited by you for your dissertation.
 
 The file "Markdown_to_LaTeX_PDF_Build_Script.sh" has a "Settings" section at the top, where you can change its settings. This is also the case for the scripts in the "optional_additional_files" directory, "Get_All_R_Library_Version_Numbers_and_Create_Draft_From_Them.sh" and "Get_All_R_Library_Version_Numbers_and_Create_Draft_From_Them_R_Script_Portion.R".
@@ -116,10 +117,9 @@ The file "uothesisapa.cls" is the main LaTeX style sheet for the dissertation. I
 
 The following people have contributed to this repository. Please pay their work forward by contributing any changes you're asked to make to your own dissertation by the Grad School!
 
+* Samuel Pollard (2021)
 * Samuel Li (2017)
 * Jacob Levernier (2016)
 * Tyler Matta (2016)
 * Kellie Geldreich (2016, offering formatting advice)
-
-
 

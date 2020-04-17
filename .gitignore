@@ -1,3 +1,23 @@
-builds
+# Other build files
 latex_files/version_control_commit_number_to_print_on_draft_title_page.tex
-testing_script/latex_files_for_testing_OK_TO_DELETE/
+# Latex
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.tdo
+*.toc
+*.vrb
+*-eps-converted-to.pdf
+# Editor and OS
+.DS_Store
+*.swp
+*.swo
