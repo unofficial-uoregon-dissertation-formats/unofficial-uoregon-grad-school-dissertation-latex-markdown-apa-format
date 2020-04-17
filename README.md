@@ -25,12 +25,11 @@ I've made this repository public so that changes that future grad students are r
 If you use these files and are asked to make changes by the Grad. School, and are willing to contribute them back, please follow these steps:
 
 1. Only contribute **formatting** or other **large-scale** changes, rather than changes in **content.** "Formatting" changes include things like indentation, bibliography formatting, etc. They do not include things like changing the license text on your Copyright page or replacing the example text in the Markdown files with text from your own dissertation (changes like those are less useful to share, because almost everyone will make small content adjustments for their own dissertations).
-1. 
-  1. If you feel comfortable using Git:
-    1. Make a fork of this repository (from this repository's page on GitHub, click "Fork").
-    1. Create a single commit that contains all of the changes that you would like to share (either by "squashing" your commits (see [here](http://stackoverflow.com/a/5189600 'StackOverflow: Squash my last X commits together using Git'), for example), or by just copying your altered files into a fresh copy of this repository).
-    1. Make a pull request through GitHub (from your copy of the repository in GitHub, click "New Pull Request").
-  1. If you do not feel comfortable using Git: Send an email to the person who's currently running this repository (see [above](#current-administrator 'Current Administrator')); we'll work together to get your changes incorporated, with gratitude for you being willing to share them.
+1. If you feel comfortable using Git:
+    * Make a fork of this repository (from this repository's page on GitHub, click "Fork").
+    * Create a single commit that contains all of the changes that you would like to share (either by "squashing" your commits (see [here](http://stackoverflow.com/a/5189600 'StackOverflow: Squash my last X commits together using Git'), for example), or by just copying your altered files into a fresh copy of this repository).
+    * Make a pull request through GitHub (from your copy of the repository in GitHub, click "New Pull Request").
+1. If you do not feel comfortable using Git: Send an email to the person who's currently running this repository (see [above](#current-administrator 'Current Administrator')); we'll work together to get your changes incorporated, with gratitude for you being willing to share them.
 
 ## Using the Files in this Repository
 
