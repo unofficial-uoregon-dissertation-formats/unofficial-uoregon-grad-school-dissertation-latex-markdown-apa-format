@@ -377,7 +377,7 @@ of this document.}
   \ifdraft\@disclaimer\\\fi\vfill
    A \@upperpapertype \\*[\baselineskip]
    Presented to the  \@narrowdepartment \\*
-   and the Graduate School of the University of Oregon \\*
+   and the Division of Graduate Studies of the University of Oregon \\*
    in partial fulfillment of the requirements \\*
    for the degree of \\*
    \@degree \\*[\baselineskip]
