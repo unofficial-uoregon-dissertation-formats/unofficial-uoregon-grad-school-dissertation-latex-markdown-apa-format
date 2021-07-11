@@ -1,9 +1,9 @@
 % ----------------------------------------------------------------
-%% uothesis.cls 
-%% Support for formatting of documents associated 
+%% uothesis.cls
+%% Support for formatting of documents associated
 %% with the graduate requirements for the doctoral degrees as
 %% defined by the University of Oregon Graduate School.
-%% All contact regarding this package should be to 
+%% All contact regarding this package should be to
 %% the University of Oregon CMET Consulting.
 %% Released under the LaTeX Project Public License v1.3c or later
 %% See http://www.latex-project.org/lppl.txt
@@ -21,8 +21,11 @@
 %% Minor changes to CV and Approval Page
 %% TOC now lists to the third level of section headers
 %%
+%% updated 24APR2021
+%% Removed requirement for APA in-text reference citations
+%%
 %%----------------------------------------------------------------------------%%
-%% Identification 
+%% Identification
 %%----------------------------------------------------------------------------%%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{uothesisapa} %[2012/02/08 v2.5.6 Submission to University of Oregon Graduate School]
@@ -31,7 +34,8 @@
 \typeout{Based on the UO Thesis macros by Bart Massey, et al.}
 \typeout{Currently maintained by <You're on your own>}
 \typeout{Accepted by the University of Oregon Graduate School}
-\typeout{for APA use with PhD Dissertations <date goes here>}
+\typeout{for multiple citation format use with PhD Dissertations}
+\typeout{24 May 2021}
 \typeout{}
 \listfiles
 \newif\ifthesis
@@ -51,6 +55,7 @@
 \newif\ifapacite
 \newif\ifnotables
 \newif\ifnofigures
+\newif\iflistings
 \newif\if@dissertation
 \newif\if@approved
 \newif\if@copyright
@@ -60,7 +65,7 @@
 \newif\if@draftimage
 \newif\if@lackscommittee
 
-\DeclareOption{dissertation}{\@dissertationtrue\thesistrue\apacitetrue}
+\DeclareOption{dissertation}{\@dissertationtrue\thesistrue}
 \DeclareOption{msthesis}{\@dissertationfalse\thesistrue}
 \DeclareOption{approved}{\@approvedtrue}
 \DeclareOption{draftimages}{\draftimagetrue\PassOptionsToPackage{draft}{graphicx}}
@@ -104,6 +109,7 @@
 \PassOptionsToClass{12pt}{report}
 \fi\fi
 \LoadClass{report}
+\RequirePackage[letterpaper]{geometry} % Prevents from using A4
 \RequirePackage{float}
 %\RequirePackage{subfig}
 \RequirePackage{subcaption}
@@ -130,6 +136,7 @@
 \fi
 \ifapacite
 \RequirePackage[natbibapa]{apacite}
+\bibliographystyle{apacite}
 \fi
 
 \ifdraft
@@ -204,7 +211,7 @@
 \def\@disclaimer{
 \ifcommitteedraft\textcolor{red}{\textbf{\uppercase{committee draft}}}\fi
 \iflatedraft\textcolor{red}{\textbf{\uppercase{review proof}}}\fi
-\ifdraftcopy\textcolor{red}{\textbf{\uppercase{editing draft}}}\fi\\
+\ifdraftcopy\textcolor{red}{\textbf{\uppercase{editing draft}}}\fi
 \vspace*{0.5in}
 
 \textcolor{red}{\textbf{\uppercase{This is a draft copy for review and editing purposes only!}}}
@@ -221,7 +228,7 @@ documentation for instructions on producing a properly formatted document.}}}}}
 \def\@bounddisclaimer{%
 \parbox{0.75\textwidth}{\centering
 \begin{spacing}{0.5}
-{\tiny This document is for the the personal use of the author and does not comply
+{\tiny This document is for the personal use of the author and does not comply
 with the University of Oregon Graduate School.  Please contact the University
 of Oregon Graduate School for information on how to obtain an official copy
 of this document.}
@@ -333,7 +340,7 @@ of this document.}
      \hbox to0pt{}\nointerlineskip\vskip\@tempdima
 }
 
-\setcounter{tocdepth}{3}   
+\setcounter{tocdepth}{3}
 \newcounter{@shownumdepth}
 
 \if@gsmodern
@@ -370,7 +377,7 @@ of this document.}
   \ifdraft\@disclaimer\\\fi\vfill
    A \@upperpapertype \\*[\baselineskip]
    Presented to the  \@narrowdepartment \\*
-   and the Graduate School of the University of Oregon \\*
+   and the Division of Graduate Studies of the University of Oregon \\*
    in partial fulfillment of the requirements \\*
    for the degree of \\*
    \@degree \\*[\baselineskip]
@@ -398,15 +405,15 @@ of this document.}
       \fi
       \if@lackscommittee
         % If we don't have a committee, do nothing. Otherwise, render the committee. Rather, just enter a few blank lines.
-        \\ \\ 
+        \\ \\
       \else
-        \@committee\\ \\ 
+        \@committee\\ \\
       \fi
       and & \\ \\
-      \@graddean &  Dean of the Graduate School
+      \@graddean
     \end{tabular}\\*[\baselineskip]
     Original approval signatures are on file with the
-    University of Oregon Graduate School.\\*[\baselineskip]
+    University of Oregon Division of Graduate Studies.\\*[\baselineskip]
     Degree awarded \@degreemonth ~\thedegreeyear
   \end{spacing}
 }
@@ -416,8 +423,7 @@ of this document.}
 \clearpage
 \thispagestyle{plain}
 \@fromtopskip{5in}
-% Added by JL to specify a license that the work is released under:
-\begin{singlespacing} % Changed by JL following a request from the Grad. School.
+\begin{singlespacing}
 \ifbound\else\begin{center}
 % Automatically give the author and year, without an extra linebreak beneath (as you would get from using '\ifbound\else\centerline{\copyright ~\thedegreeyear ~\@author}\fi'):
 \copyright ~\thedegreeyear ~\@author \\
@@ -425,13 +431,18 @@ of this document.}
 All rights reserved.
 
 %%%%%%%%%%%%%%%%%%%%%%
-% Below is an example for a Creative-Commons style license, if you want to use one (if you use this, delete "All rights reserved." above). It assumes that you've downloaded the logo for the license (you'll need to change '/path/to/logo/image.png' to match where the image is on your filesystem):
-% (You would uncomment both of the lines below, and choose whatever license you wanted (not just Attribution, but maybe a more restrictive license -- see https://creativecommons.org/choose/ for help choosing).
+% Below is an example for a Creative-Commons style license, if you want
+% to use one (if you use this, delete "All rights reserved." above). It
+% assumes that you've downloaded the logo for the license (you'll need
+% to change '/path/to/logo/image.eps' where you stored the file.
+% (You would uncomment both of the lines below, and choose whatever
+% license you wanted (not just Attribution, but maybe a more restrictive
+% license -- see https://creativecommons.org/choose/ for help choosing).
 %%%%%%%%%%%%%%%%%%%%%%
 
 %This work, including text and images of this document but not including supplemental files (for example, not including software code and data), is licensed under a Creative Commons\\ \textbf{\href{http://creativecommons.org/licenses/by/4.0/}{Attribution 4.0 International License}.}\\
 
-%\raisebox{-.5\height}{\includegraphics[height=2em]{/path/to/logo/image.png}}
+%\raisebox{-.5\height}{\includegraphics[height=2em]{/path/to/logo/image.eps}}
 
 %%%%%%%%%%%%%%%%%%%%%%
 % End of example
@@ -459,7 +470,7 @@ All rights reserved.
     \@degree\\*[\baselineskip]
     \@department\\*[\baselineskip]
     \@degreemonth ~\thedegreeyear\\*[\baselineskip]
-    Title: \@abstracttitle\\*[\baselineskip] 
+    Title: \@abstracttitle\\*[\baselineskip]
     %\\*[2\baselineskip]
   \end{spacing}
   \ifjustified
@@ -534,7 +545,7 @@ All rights reserved.
 
 %------------------------------------------------------------------------------%
 % Define CV
-% Comment out irrelevant lines with irrelevant section headers. 
+% Comment out irrelevant lines with irrelevant section headers.
 %------------------------------------------------------------------------------%
 \def\@makevita{
   \clearpage
@@ -543,7 +554,7 @@ All rights reserved.
   \begin{singlespacing}
     \vspace*{3ex}
     \noindent NAME OF AUTHOR:\quad \@author \vskip1.5\baselineskip
-    \everypar={\hangindent=\@cvhangindent} 
+    \everypar={\hangindent=\@cvhangindent}
     \noindent GRADUATE AND UNDERGRADUATE SCHOOLS ATTENDED: \vskip\baselineskip \@schools \vskip\baselineskip
     \vskip \baselineskip
     \noindent DEGREES AWARDED: \vskip\baselineskip \@degrees \vskip\baselineskip
@@ -580,6 +591,10 @@ All rights reserved.
     \fi
     \ifnotables\else
     \IfFileExists{\jobname.\ext@table}{\@listoftables}{\@starttoc{\ext@table}}
+    \fi
+    \iflistings
+    \def\ext@listing{lol}
+    \IfFileExists{\jobname.\ext@listing}{\@listoflistings}{\@starttoc{\ext@listing}}
     \fi
     \clearpage
     \@normalheaderdims
@@ -647,6 +662,10 @@ Draft of \@longdraftdate\\
         \ifnotables\else
         \IfFileExists{\jobname.\ext@table}{\@listoftables}{\@starttoc{\ext@table}}
         \fi
+        \iflistings
+        \def\ext@listing{lol}
+        \IfFileExists{\jobname.\ext@listing}{\@listoflistings}{\@starttoc{\ext@listing}}
+        \fi
       \fi
     \fi
   \else
@@ -677,7 +696,7 @@ Draft of \@longdraftdate\\
   \def\@evenhead{{\hbox to\textwidth{Chapter\hfil{Page}}}}
   \textheight 620pt
   \headheight 14pt
-  \headsep 14pt 
+  \headsep 14pt
 }
 \def\ps@lofextraheadings{
   \def\@oddfoot{\@footlines{\@footer}}
@@ -693,6 +712,15 @@ Draft of \@longdraftdate\\
   \def\@oddhead{{\hbox to\textwidth{Table\hfil{Page}}}}
   \def\@evenfoot\@oddfoot
   \def\@evenhead{{\hbox to\textwidth{Table\hfil{Page}}}}
+  \textheight 620pt
+  \headheight 14pt
+  \headsep 14pt
+}
+\def\ps@lolextraheadings{
+  \def\@oddfoot{\@footlines{\@footer}}
+  \def\@oddhead{{\hbox to\textwidth{Listing\hfil{Page}}}}
+  \def\@evenfoot\@oddfoot
+  \def\@evenhead{{\hbox to\textwidth{Listing\hfil{Page}}}}
   \textheight 620pt
   \headheight 14pt
   \headsep 14pt
@@ -752,6 +780,17 @@ Draft of \@longdraftdate\\
   \makebox[\textwidth][l]{Table \hfill Page}
   \protect\nopagebreak\sloppy\pagestyle{lotextraheadings}\@mydouble\@starttoc{\ext@table} % '\protect\nopagebreak\protect\noindent\sloppy' added by JL following http://tex.stackexchange.com/a/24799 in order to encourage better line breaking in Table of Contents entries for long headings. This gets the ToC formatted correctly in final mode (as opposed to just in draft mode).
 }
+
+\def\@listoflistings{%
+  \clearpage
+  \markboth{Listing}{Listing}
+  \thispagestyle{tocheadings}
+  \@startchapter{LIST OF SOURCE CODE LISTINGS}
+  \vspace*{14pt}
+  \noindent
+  \makebox[\textwidth][l]{Listing \hfill Page}
+  \protect\nopagebreak\sloppy\pagestyle{lolextraheadings}\@mydouble\@starttoc{\ext@listing}
+}
 \if@gsmodern
    \def\numberline#1{\hbox to\@tempdima{\hskip 2.75em #1.\hfil}}
 \else
@@ -800,11 +839,6 @@ Draft of \@longdraftdate\\
   \if@numsections
      \def\l@section{
        \@sechack\@dottedtocline{1}{0.5in}{2em}}
-  \else
-	% Edit by JL: I changed all 2em to 0em below -- the second set of brackets in each of these controls the hanging indent for wrapped lines.
-    \def\l@section{\@sechack\@dottedtocline{1}{0.5in}{0em}}  % sections other than Chapters  indent is .5 inch
-    \def\l@subsection{\@sechack\@dottedtocline{2}{0.75in}{0em}}  % sections other than Chapters  indent is .5 inch
-    \def\l@subsubsection{\@sechack\@dottedtocline{3}{1in}{0em}}  % sections other than Chapters  indent is .5 inch
   \fi
 \fi
 \def\l@figure{\@dottedtocline{0}{0in}{2.3em}}%
@@ -836,7 +870,7 @@ Draft of \@longdraftdate\\
     \par
     \vskip 0pt  %-- Was 2ex.  Removes extra space between chapter num and Chapter titel
   \fi
-  \ifsc\textsc{#1}\else\uppercase{#1}\fi\par\nopagebreak\vskip 0pt}} % was 4ex. Removed the space between chapter titel and paragraph
+  \ifsc\textsc{#1}\else\uppercase{#1}\fi\par\nopagebreak\vskip 0pt}} % was 4ex. Removed the space between chapter title and paragraph
   \def\@makeschapterhead#1{{
     \@startchapter{\ifsc\textsc{#1}\else\uppercase{#1}\fi}\par
     \nopagebreak\vskip 4ex}}
@@ -888,7 +922,7 @@ Draft of \@longdraftdate\\
         \cleardoublepage
         \phantomsection % Added by JL for compatibility with the hyperref package, following http://tex.stackexchange.com/a/23503 (this will get the hyperlink anchor for the line to be correct, so that when it's clicked on, it will take the reader to the correct page)
         \addcontentsline{toc}{chapter}
-        {\protect\number@appendix{\number\c@chapter}{\Alph{chapter}} % removed . from {\Alph{chapter}. } everything seems okay. 
+        {\protect\number@appendix{\number\c@chapter}{\Alph{chapter}} % removed . from {\Alph{chapter}. } everything seems okay.
            \ifsc\textsc{#1}
            \else\uppercase{#1}
            \fi
@@ -1133,14 +1167,14 @@ deprecated by Grad. School}
 %% J. Paul Walser, Bei Li, Bart Massey, et al.
 %% "maintained" (as per LPPL maintenance status) by
 %% Michael D. Anderson
-%% 
+%%
 %% It may be distributed and/or modified under the conditions of
 %% the LaTeX Project Public License (LPPL), either version 1.3c of
 %% this license or (at your option) any later version.  The latest
 %% version of this license is in the file:
-%% 
+%%
 %% http://www.latex-project.org/lppl.txt
-%% 
-%% 
+%%
+%%
 %%
 %% End of file `uothesis.cls'.

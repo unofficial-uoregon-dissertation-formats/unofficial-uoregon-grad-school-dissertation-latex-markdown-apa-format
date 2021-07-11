@@ -1,0 +1,115 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+%       This is the beginning of a uothesisapa Dissertation                    %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\errorcontextlines 10000 % Get more logging information on errors. Following http://tex.stackexchange.com/a/83485/56363, if after setting this you see an error, "Note that the order is 'from inner to outer', that is, the first (non-indented) line is the point where the error actually occurred. The line after that (indented) is the part of that line which isn't yet processed, so the point of error is exactly at the line break."
+
+%==============================================================================%
+% Preamble
+%==============================================================================%
+% Options:
+%     Pass a list of these separated by commas into the documentclass brackets
+% Critical Options:
+%     dissertation   - PhD Theses.
+%     msthesis       - Master's Thesis
+%     lackscommittee - no committee; often goes with Master's Thesis
+%     copyright      - include copyright page. NOTE: You must customize this
+%                      yourself under makecopyrightpage in uothesis.cls
+%     final          - increases font size to 12pt, makes it twosided
+%     approved       - Add the approval prefatory page (when you're done!)
+% Extra Formatting Options:
+%     sc             - use smallcaps instead of uppercase for chapter
+%                      titles and stuff.
+%     justified      - If you want to justify the text
+%     bound          - Change for binding and printing. Does not comply with UO
+%     amstex         - use amsmath, amssymb, amsthm Since it's in the .cls,
+%                      they're bound early with RequirePackage. See also
+%                      MATH EQUATIONS AND THEOREMS
+%     chem           - use mhchem
+%     apacite        - use APA style citations. If this is not included, you
+%                      need to change this file a little; see the BIBLIOGRAPHY
+%                      section.  You may also need to edit the makefile.
+%     notables       - Do not include a "List of Tables" page
+%     nofigures      - Do not include a "List of Figures" page
+%     listings       - Include a "List of Source Code Listings" page. This
+%                      requires you to add the following into this file:
+%                    \usepackage{listings}
+%                    \renewcommand{\lstlistoflistings}{\begingroup
+%                    \tocfile{\lstlistingname}{lol}
+%                    \endgroup}
+% Notes:
+%     - `draftcopy` is incompatible with `final`
+%     - `msthesis` is incompatible with `dissertation`
+%     - ...and probably more. You can see them in
+
+% Examples:
+\documentclass[dissertation, final, draftcopy, apacite, copyright]{uothesis} % For final copies
+
+%\documentclass[dissertation, draftcopy]{uothesis} % For draft copies (enables line numbering, and puts black bars where there is text that overflows a line where latex can't figure out how to break it onto another line (in non-draft modes, this will result in an "overfull hbox" error, so draft mode is a good way of spotting these, following http://tex.stackexchange.com/a/39/56363)
+
+%\documentclass[msthesis, lackscommittee, approved, final]{uothesis} % Example for Masters thesis that does not include a committee.
+
+%------------------------------------------------------------------------------%
+% PACKAGES
+%------------------------------------------------------------------------------%
+\usepackage[USenglish,UKenglish]{babel}
+\usepackage{mathtools,amsmath,amsfonts,amsthm,amssymb,bm, bbm}
+\usepackage{dcolumn,booktabs,longtable}
+\usepackage[singlelinecheck=false]{caption}
+  \captionsetup[subfigure]{singlelinecheck=on, labelfont=normalfont}
+  \captionsetup[figure]{labelfont=it}
+\usepackage{placeins}
+\usepackage{graphicx}
+\usepackage[space]{grffile} % allow spaces in graphics filenames.
+\usepackage{rotating}
+\usepackage{enumitem}
+\usepackage{epstopdf}
+\usepackage{ctable}
+\usepackage{appendix}
+\usepackage{setspace}
+\usepackage[normalem]{ulem}
+\usepackage{tabularx,xspace,multirow}
+\usepackage{array}
+
+% Added by Jacob L. following https://tex.stackexchange.com/questions/148314/undefined-control-sequence-in-printbibliography-biblatex to allow UTF-8 (non-ASCII) characters in the bibliography .bib file.
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+%------------------------------------------------------------------------------%
+% BIBLIOGRAPHY
+%------------------------------------------------------------------------------%
+%--- You need to specify these if your dissertation is something other than
+%--- apacite+bibtex, but these may be helpful for anything nonstandard.
+%
+%--- For example: If using biblatex, you need to manually fix spacing and ensure
+%--- bibitems do not straddle page breaks and show up in TOC
+% \usepackage{bibspacing}
+% \setcounter{secnumberdepth}{4}
+% \patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{}
+% \setlength\bibitemsep{0.5\baselineskip}
+% \usepackage{tocloft}
+% \renewcommand{\cftchapfont}{\normalsize}
+% \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+% \renewcommand*{\numberline}[1]{\hb{#1  \hfil}}
+%
+%--- Or, if you want to change the citation style to e.g. acm
+% \bibliographystyle{acm}
+
+%------------------------------------------------------------------------------%
+% MATH EQUATIONS AND THEOREMS (.cls also restructures theorem layout)
+%------------------------------------------------------------------------------%
+%--- Change \align{} and \equation{} spacing
+\usepackage{etoolbox}
+\newcommand{\zerodisplayskips}{%
+  \setlength{\abovedisplayskip}{3pt}
+  \setlength{\belowdisplayskip}{3pt}
+  \setlength{\abovedisplayshortskip}{3pt}
+  \setlength{\belowdisplayshortskip}{3pt}}
+\appto{\normalsize}{\zerodisplayskips}
+\appto{\small}{\zerodisplayskips}
+\appto{\footnotesize}{\zerodisplayskips}
+
