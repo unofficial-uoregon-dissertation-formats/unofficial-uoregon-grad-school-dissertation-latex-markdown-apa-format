@@ -29,7 +29,9 @@
 %     amstex         - use amsmath, amssymb, amsthm Since it's in the .cls,
 %                      they're bound early with RequirePackage. See also
 %                      MATH EQUATIONS AND THEOREMS
-%     chem           - use mhchem
+%     chemistry      - use mhchem with ACS-style citations: superscript numbers
+%                      for in-text citations with a numbered references cited
+%                      section. Also loads mhchem.
 %     apacite        - use APA style citations. If this is not included, you
 %                      need to change this file a little; see the BIBLIOGRAPHY
 %                      section.  You may also need to edit the makefile.
@@ -44,7 +46,9 @@
 % Notes:
 %     - `draftcopy` is incompatible with `final`
 %     - `msthesis` is incompatible with `dissertation`
-%     - ...and probably more. You can see them in
+%     - pick exactly one of `apacite`, `chemistry`, or nothing, if using a
+%       custom citation style.
+%     - ...and probably more.
 
 % Examples:
 \documentclass[dissertation, final, draftcopy, apacite, copyright]{uothesis} % For final copies

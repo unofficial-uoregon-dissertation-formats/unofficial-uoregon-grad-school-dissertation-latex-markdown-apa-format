@@ -17,6 +17,7 @@ latex_files/version_control_commit_number_to_print_on_draft_title_page.tex
 *.toc
 *.vrb
 *-eps-converted-to.pdf
+acs-main.bib
 # Editor and OS
 .DS_Store
 *.swp
