@@ -127,6 +127,7 @@
 
 \ifchem
 \RequirePackage[version=3]{mhchem}
+\RequirePackage[super, biblabel=brackets]{achemso}
 \fi
 \ifamstex
 \RequirePackage{amsmath,amsthm,amssymb}
