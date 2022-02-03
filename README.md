@@ -6,17 +6,17 @@ This repository contains template files and sample text for rendering a disserta
 
 ## Current Administrator
 
-The current person who administrates this repository is Jacob Levernier, jleverni@uoregon.edu.
+The current person who administrates this repository is Sam Pollard, (email: sam dot d dot pollard at gmail dot com)
 
 ## History of this Repository
 
-As of June 2021, this has all the correct prefatory pages and administrative jargon that the graduate school needs.
+As of June 2021, this has all the correct prefatory pages and administrative jargon that the graduate school needs. However, Summer 2022 and beyond, there is a new style guide. Most things are compatible but if there are changes, please let me know!
 
 In 2014 or before, the Graduate School, apparently in consultation with [CMET](https://library.uoregon.edu/cmet "CMET"), officially supported a LaTeX stylesheet for theses and dissertations. In 2016, however, the Graduate School ended its dedicated position for a thesis and dissertation editor, and with it, it seems, official support for LaTeX (technical support can go through CMET, but there's no official expectation of tech. support).
 
 In 2016, Tyler Matta updated the existing Grad School stylesheet to comply with APA format, and generously passed it on to several other graduate students in Psychology. Since then, I've made additional formatting corrections, and have also added support for writing using [Markdown](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html "RStudio: 'Authoring Pandoc Markdown'") (including [RMarkdown](http://rmarkdown.rstudio.com/lesson-1.html "RMarkdown Introduction")).
 
-Given the amount of work that Tyler and then I had to put in to get the dissertation formatted correctly for the Grad School, I've created this repository. I envision it being grad-student run, though CMET or the Grad School may ask to administrate it at some point. **Contributions are welcome (see [below](#contributing-to-this-repository)).**
+Given the amount of work that Tyler and then Jacob Levernier had to put in to get the dissertation formatted correctly for the Grad School, I've created this repository. I envision it being grad-student run, though CMET or the Grad School may ask to administrate it at some point. **Contributions are welcome (see [below](#contributing-to-this-repository)).**
 
 ## Contributing to this Repository
 
@@ -35,7 +35,7 @@ If you use these files and are asked to make changes by the Grad. School, and ar
 
 ## Using the Files in this Repository
 
-All `.sh` files in this repository are expected to be run in a Bash shell (i.e., the "Terminal" in Linux or Mac OSX (or Cygwin or Bash for Windows on Windows). This has been tested in Linux and MacOS Big Sur (11.4).
+All `.sh` files in this repository are expected to be run in a Bash shell (i.e., the "Terminal" in Linux or Mac OSX (or Cygwin or Bash for Windows on Windows). This has been tested in Linux and MacOS Big Sur (11.6).
 
 Currently, markdown conversions are not supported (that is, the files `Run_Tests_to_Make_Sure_that_Everything_Builds.sh` and those in `markdown_draft_examples` currently don't work).
 
@@ -95,11 +95,11 @@ This line controls how the dissertation is rendered. It has several options:
 
 ### Explanation of Some Files
 
-The file `3_uothesis_chapter_template.tex` is an example bare-bones TeX template to help you test your system. It's not necessary for rendering an actual dissertation, except that it shows how chapters are started (with a `\chapter{Chapter Name}` line).
+The file `3_uothesis_chapter_template.tex` is an example bare-bones TeX template to help you test your system. It's not necessary for rendering an actual dissertation, except that it shows how chapters are started (with a `\chapter{Chapter Name}` line). If you want to add more chapers, you can either add directly to this file, or make a new file (it doesn't have to start with a `3_`, and include it in `main.tex`.
 
 The same is true of the file `4_uothesis_appendix_examples.tex`.
 
-The file `5_uothesis_bibliography.tex` lists all BibTeX (.bib) files that contain the citation information for your References Cited page. `\bibliography{Bibliography_File}`, for example, means "Look in the same folder as this file for `Bibliography_File.bib`." Programs such as [Zotero](https://www.zotero.org/ "Zotero") and [Mendeley](https://www.mendeley.com/ "Mendeley") can export citations in .bib format for you (I especially recommend using Zotero with the free [Better Bib(La)TeX plugin](https://github.com/ZotPlus/zotero-better-bibtex "Zotero Better Bib(La)TeX plugin"), linked from [here](https://www.zotero.org/support/plugins "Zotero Plugins")). The files in this repository are currently set up to look for a file called "Bibliography.bib" (an example file is included).
+The file `5_uothesis_bibliography.tex` lists all BibTeX (.bib) files that contain the citation information for your References Cited page. `\bibliography{Bibliography_File}`, for example, means "Look in the same folder as this file for `Bibliography_File.bib`." Programs such as [Zotero](https://www.zotero.org/ "Zotero") and [Mendeley](https://www.mendeley.com/ "Mendeley") can export citations in .bib format for you (I especially recommend using Zotero with the free [Better Bib(La)TeX plugin](https://github.com/ZotPlus/zotero-better-bibtex "Zotero Better Bib(La)TeX plugin"), linked from [here](https://www.zotero.org/support/plugins "Zotero Plugins")). The files in this repository are currently set up to look for a file called "main.bib" (an example file is included).
 
 The file "appendices.tex" currently looks for an external file (for my dissertation, it was called `R_Package_Version_Numbers_AUTOMATICALLY_GENERATED_DO_NOT_EDIT_MANUALLY.md.tex` and adds it as an appendix if it is found. 
 

@@ -32,10 +32,10 @@
 \typeout{UO Dissertation Class for APA style}
 \typeout{}
 \typeout{Based on the UO Thesis macros by Bart Massey, et al.}
-\typeout{Currently maintained by <You're on your own>}
+\typeout{Currently maintained by Sam Pollard}
 \typeout{Accepted by the University of Oregon Graduate School}
-\typeout{for multiple citation format use with PhD Dissertations}
-\typeout{24 May 2021}
+\typeout{for multiple citation formats used with PhD Dissertations}
+\typeout{2 Feb 2022}
 \typeout{}
 \listfiles
 \newif\ifthesis
@@ -485,26 +485,26 @@ All rights reserved.
 % Define Acknowledgments
 %------------------------------------------------------------------------------%
 \def\@makeackpage{
-	\if@acknowledge
-		\clearpage
-		\thispagestyle{plain}
-		\@startchapter{ACKNOWLEDGEMENTS}
-		\vspace*{\baselineskip}
-		\par
-			\ifcommitteedraft
-				\begin{center}\@disclaimer\end{center}
-				\else
-				  \ifjustified
+  \if@acknowledge
+    \clearpage
+    \thispagestyle{plain}
+    \@startchapter{ACKNOWLEDGEMENTS}
+    \vspace*{\baselineskip}
+    \par
+      \ifcommitteedraft
+        \begin{center}\@disclaimer\end{center}
+        \else
+          \ifjustified
           \else
             \RaggedRight
           \fi
-				  \@acknowledge
-				  \iflatedraft
-					  \vfill
-					  \begin{center} \textcolor{red}{\textbf{\uppercase{review proof}}}\\ \end{center}
-				  \fi
-			\fi
-	\fi
+          \@acknowledge
+          \iflatedraft
+            \vfill
+            \begin{center} \textcolor{red}{\textbf{\uppercase{review proof}}}\\ \end{center}
+          \fi
+      \fi
+  \fi
 }
 
 %------------------------------------------------------------------------------%
@@ -829,7 +829,7 @@ Draft of \@longdraftdate\\
 %--- This is the chapter format for the TOC
 \def\l@chapter#1#2{
    \pagebreak[3]\par % Was: \pagebreak[3]\par\vskip\baselineskip
-   \@dottedtocline{0}{0in}{1em}{#1}{#2}  %  {1em} is the space between chapter# and title #2 is the page number
+   \@dottedtocline{0}{0em}{1.8em}{#1}{#2}  %  {1.8em} is the space between chapter# and title #2 is the page number
    \nopagebreak\par
    \gdef\@sechack{\vskip\baselineskip\gdef\@sechack{\relax}}} %was \vskip\baselineskip\gdef removed to reduce the space
 

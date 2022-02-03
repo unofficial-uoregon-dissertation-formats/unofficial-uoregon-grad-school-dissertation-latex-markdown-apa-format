@@ -29,6 +29,6 @@ findref:
                done
 
 clean:
-	$(RM) *.aux *.log *.out *.lof *.lot *.toc *.lbl *.brf *.fls *.fdb_latexmk $(MAIN).dvi $(MAIN).ps $(MAIN).pdf $(MAIN).bbl $(MAIN).blg $(MAIN).synctex.gz $(MAIN).tdo acs-$(MAIN).bib
+	$(RM) *.aux *.log *.out *.lof *.lot *.lol *.toc *.lbl *.brf *.fls *.fdb_latexmk $(MAIN).dvi $(MAIN).ps $(MAIN).pdf $(MAIN).bbl $(MAIN).blg $(MAIN).synctex.gz $(MAIN).tdo acs-$(MAIN).bib
 
 
