@@ -574,7 +574,7 @@ All rights reserved.
 }
 
 \def\@maketitlepages{
-  \pagenumbering{roman}
+  \pagenumbering{arabic}
   \@maketitlepage
   \if@approved
     \@makeapprovepage
@@ -654,7 +654,7 @@ Draft of \@longdraftdate\\
         \@maketitlepages
       \else
         \@makedraftcover
-        \pagenumbering{roman}
+        \pagenumbering{arabic}
         \listoftodos \clearpage
         \@tableofcontents
         \ifnofigures\else
@@ -674,8 +674,6 @@ Draft of \@longdraftdate\\
   \fi
   \pagestyle{plain}
   \ifjustified\else\RaggedRight\fi
-  \pagenumbering{arabic}
-  \setcounter{page}{1}
 }
 
 \def\@footlines#1{\hbox to\textwidth{#1}}
