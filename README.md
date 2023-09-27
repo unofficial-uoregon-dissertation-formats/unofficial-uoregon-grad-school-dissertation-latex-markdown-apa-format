@@ -8,34 +8,29 @@ This repository contains template files and sample text for rendering a disserta
 
 The current person who administrates this repository is Sam Pollard, (email: sam dot d dot pollard at gmail dot com)
 
-## History of this Repository
+As of September 2023, this has all the correct prefatory pages and administrative jargon that the graduate school needs.
 
-As of June 2021, this has all the correct prefatory pages and administrative jargon that the graduate school needs. However, Summer 2022 and beyond, there is a new style guide. Most things are compatible but if there are changes, please let me know!
+## History of this Repository
 
 In 2014 or before, the Graduate School, apparently in consultation with [CMET](https://library.uoregon.edu/cmet "CMET"), officially supported a LaTeX stylesheet for theses and dissertations. In 2016, however, the Graduate School ended its dedicated position for a thesis and dissertation editor, and with it, it seems, official support for LaTeX (technical support can go through CMET, but there's no official expectation of tech. support).
 
 In 2016, Tyler Matta updated the existing Grad School stylesheet to comply with APA format, and generously passed it on to several other graduate students in Psychology. Since then, I've made additional formatting corrections, and have also added support for writing using [Markdown](http://rmarkdown.rstudio.com/authoring_pandoc_markdown.html "RStudio: 'Authoring Pandoc Markdown'") (including [RMarkdown](http://rmarkdown.rstudio.com/lesson-1.html "RMarkdown Introduction")).
 
-Given the amount of work that Tyler and then Jacob Levernier had to put in to get the dissertation formatted correctly for the Grad School, I've created this repository. I envision it being grad-student run, though CMET or the Grad School may ask to administrate it at some point. **Contributions are welcome (see [below](#contributing-to-this-repository)).**
+Given the amount of work that Tyler and then Jacob Levernier had to put in to get the dissertation formatted correctly for the Grad School, this repo was created and is grad-studnet run, though CMET or the Grad School may ask to administrate it at some point. **Contributions are welcome **
 
 ## Contributing to this Repository
 
-I've made this repository public so that changes that future grad students are required to make can be saved in one place and thus made more accessible to everyone. 
-
-**We also welcome contributions to this Readme** -- if there are things that you had to work a lot to understand (for example, how to even run the build script in the first place), write up and contribute an explanation! **Pay it forward** : )
+If there are things that you had to work a lot to understand (for example, how to even run the build script in the first place), write up and contribute an explanation! **Pay it forward** : )
 
 If you use these files and are asked to make changes by the Grad. School, and are willing to contribute them back, please follow these steps:
 
 1. Only contribute **formatting** or other **large-scale** changes, rather than changes in **content.** "Formatting" changes include things like indentation, bibliography formatting, etc. They do not include things like changing the license text on your Copyright page or replacing the example text in the Markdown files with text from your own dissertation (changes like those are less useful to share, because almost everyone will make small content adjustments for their own dissertations).
-1. If you feel comfortable using Git:
-    * Make a fork of this repository (from this repository's page on GitHub, click "Fork").
-    * Create a single commit that contains all of the changes that you would like to share (either by "squashing" your commits (see [here](http://stackoverflow.com/a/5189600 'StackOverflow: Squash my last X commits together using Git'), for example), or by just copying your altered files into a fresh copy of this repository).
-    * Make a pull request through GitHub (from your copy of the repository in GitHub, click "New Pull Request").
-1. If you do not feel comfortable using Git: Send an email to the person who's currently running this repository (see [above](#current-administrator 'Current Administrator')); we'll work together to get your changes incorporated, with gratitude for you being willing to share them.
+1. If you feel comfortable using Git: make pull request.
+1. Otherwise, make an issue or email the current admin [above](#current-administrator 'Current Administrator')); we'll work together to get your changes incorporated, with gratitude for you being willing to share them.
 
 ## Using the Files in this Repository
 
-All `.sh` files in this repository are expected to be run in a Bash shell (i.e., the "Terminal" in Linux or Mac OSX (or Cygwin or Bash for Windows on Windows). This has been tested in Linux and MacOS Big Sur (11.6).
+All `.sh` files in this repository are expected to be run in a Bash shell (i.e., the "Terminal" in Linux or Mac OSX (or Cygwin or Bash for Windows on Windows). This has been tested in Linux and MacOS Ventura (13.5).
 
 Currently, markdown conversions are not supported (that is, the files `Run_Tests_to_Make_Sure_that_Everything_Builds.sh` and those in `markdown_draft_examples` currently don't work).
 
@@ -109,7 +104,7 @@ The file "uothesis.cls" is the main LaTeX style sheet for the dissertation. It h
 
 ### If you want to write in (R)markdown:
 
-**NOTE**: This is currently not working after general bitrot and Samuel Pollard's 2021 overhaul which simplified the building of bare LaTeX at the expense of breaking Markdown-based generators.
+**NOTE**: This is currently not working after general bitrot and Sam Pollard's 2021 overhaul which simplified the building of bare LaTeX at the expense of breaking Markdown-based generators.
 
 I've included example Markdown sections from my own dissertation (which is free to adapt under a [CC-BY license](https://creativecommons.org/licenses/by/4.0/ "CC-BY License")), as well as a build script that takes the Markdown, turns it into TeX using [Pandoc](http://pandoc.org/ "Pandoc"), and then compiles a PDF using LaTeX.
 
@@ -123,6 +118,7 @@ The file `Markdown_to_LaTeX_PDF_Build_Script.sh` has a "Settings" section at the
 
 The following people have contributed to this repository. Please pay their work forward by contributing any changes you're asked to make to your own dissertation by the Grad School!
 
+* Andrew Morris (2023)
 * Samuel Pollard (2021)
 * Samuel Li (2017)
 * Jacob Levernier (2016)
