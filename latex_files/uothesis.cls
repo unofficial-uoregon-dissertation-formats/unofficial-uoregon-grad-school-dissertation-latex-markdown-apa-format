@@ -380,32 +380,31 @@ of this document.}
   \singlespacing
   \vfill
   by \\*[\baselineskip]
-  \@author\\
+  \@author\\*
   \vfil
   \ifdraft\@disclaimer\\\fi\vfill
   \doublespacing
-   A \@papertype\ accepted and approved in partial fulfillment of the \\
+   A \@papertype\ accepted and approved in partial fulfillment of the \\*
    requirements for the degree of \\*
-   \@degree \\
-   in\ \@major \\*[\baselineskip] \\
+   \@degree \\*
+   in \@major \\*[\baselineskip]
 
-   Dissertation Committee: \\
+   Dissertation Committee:\\*
    \if@cochairs
-     \@cochairs\\
+     \@cochairs
    \else
-     \@chair , Chair\\
+     \@chair, Chair\\*
      \if@cochair
-       \@cochair , Co-chair\\
+       \@cochair, Co-chair\\*
      \fi
    \fi
    \if@lackscommittee
      % If we don't have a committee, do nothing. Otherwise, render the committee. Rather, just enter a few blank lines.
-     \\ \\
    \else
-     \@committee\\ \\
-   \fi \\
+     \@committee
+   \fi
    \vfill
-   University of Oregon \\
+   University of Oregon \\*
    \@degreemonth ~\thedegreeyear\\
    \end{center}
 }
@@ -459,7 +458,7 @@ All rights reserved.
     \vspace*{3ex}
     \noindent
     \@author\\*[\baselineskip]
-    \@degree\ in\ \@major \\*[\baselineskip]
+    \@degree\ in \@major \\*[\baselineskip]
     Title: \@abstracttitle\\*[\baselineskip]
     %\\*[2\baselineskip]
   \end{spacing}
@@ -565,9 +564,6 @@ All rights reserved.
 \def\@maketitlepages{
   \pagenumbering{arabic}
   \@maketitlepage
-  \if@approved
-    \@makeapprovepage
-  \fi
   \@makecopyrightpage
   \@makeabstractpage
   \@makevita
